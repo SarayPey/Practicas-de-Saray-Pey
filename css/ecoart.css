@@ -1,31 +1,90 @@
-#clubes #eco, #clubes #art {
-    gap: 20px;
+@import url('https://fonts.googleapis.com/css2?family=Cabin+Sketch:wght@400;700&family=Fredericka+the+Great&family=Story+Script&display=swap');
+
+:root {
+    --shadow: #1a1a1a70;
 }
 
-#clubes .eco, .art {
+* {
+    font-family: sans-serif;
+}
+
+header h1 {
+    font-size: 66px;
+    font-family: Story Script, sans-serif;
+    font-weight: 250;
+}
+
+#pj {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+#clubes, #est #cursos, #prof #profes, #fam #fams, #ext {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
+}
+
+#ecoClub, #artClub, #est #terA, #est #terB, #profes #prof1, #profes #prof2, #fams #fam1, #fams #fam2, #ext #ex1, #ext #ex2 {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#artClub h1, #ecoClub h1, #est h1, #escu, h1, #fam, h1, #extra h1 {
+    text-align: center;
+    margin: 4px;
+    font-size: 60px;
+}
+
+#ecoClub h1, #terA h1 {
+    font-family: Cabin Sketch;
+}
+
+#artClub h1, #terB h1 {
+    font-family: Fredericka the Great;
+    font-weight: 100;
+}
+
+.oc {
+    margin-top: 0;
+    padding-top: 1px;
     text-align: center;
     background-color: #9adaff;
-    width : 400px;
-    height: 450px;
+    width : 350px;
+    height: 600px;
     padding: 10px;
-	margin: 5px auto;
     gap: 10px;
-	filter: drop-shadow(0 0 10px);
+	filter: drop-shadow(0 0 4px var(--shadow));
 }
 
-#clubes .eco .avatar, .art .avatar {
+.oc .avatar {
 	text-align: center;
 	width : 250px;
 	height: 250px;
 	overflow: hidden;
 	border-radius: 10%;
-	margin: 5px auto;
+	margin: auto;
 	display: block;
 }
 
-#clubes .eco img, .art img {
+.oc img {
 	width : 300px;
 	height: 500px;
 	object-fit: cover;
 	transform: scale(1.1) translate(-20px, -100px);
+}
+
+.oc h3 {
+    font-size: 20px;
+}
+.oc p {
+    font-size: 16px;
+}
+
+#ecoClub .oc h1, #artClub .oc h1, #terA .oc h1, #terB .oc h1, #prof1 .oc h1, #prof2 .oc h1, #fam1 .oc h1, #fam2 .oc h1, #ex1 .oc h1, #ex2 .oc h1 {
+    font-size: 44px;
 }
