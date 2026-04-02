@@ -1,0 +1,31 @@
+#clubes #eco, #clubes #art {
+    gap: 20px;
+}
+
+#clubes .eco, .art {
+    text-align: center;
+    background-color: #9adaff;
+    width : 400px;
+    height: 450px;
+    padding: 10px;
+	margin: 5px auto;
+    gap: 10px;
+	filter: drop-shadow(0 0 10px);
+}
+
+#clubes .eco .avatar, .art .avatar {
+	text-align: center;
+	width : 250px;
+	height: 250px;
+	overflow: hidden;
+	border-radius: 10%;
+	margin: 5px auto;
+	display: block;
+}
+
+#clubes .eco img, .art img {
+	width : 300px;
+	height: 500px;
+	object-fit: cover;
+	transform: scale(1.1) translate(-20px, -100px);
+}
