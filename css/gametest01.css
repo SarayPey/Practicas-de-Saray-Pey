@@ -1,0 +1,138 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=VT323&display=swap');
+
+:root {
+    --shadow: #1a1a1a70;
+    --yo: #fcdd30;
+    --enemigo: #8128c9;
+    --old: #9b7c54;
+    --old2: #473728;
+    --old3: #e9e0d3;
+    --white: #fafafa;
+    --cienM: 200px;
+    --cien: #00ff00;
+    --setc: #aaff00;
+    --cinc: #ffff00;
+    --cincM: 100px;
+    --veic: #ffaa00;
+    --diez: #ff7700;
+    --cinc: #ff5500;
+    --cero: #ff0000;
+    --ceroM: 1px;
+}
+
+* {
+    font-family: sans-serif;
+    transition: all .2s;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 75px;
+}
+
+.infoOc h4 {
+    margin: 0;
+    margin-top: 20px;
+    font-family: 'Pixelify Sans';
+    font-size: 24px;
+}
+
+.hp {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    gap: 20px;
+}
+
+.hp .bar {
+    padding: 1px;
+    width: 205px;
+    height: 20px;
+    outline: 1px solid #000000;
+    border-radius: 20px;
+}
+
+.pro {
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    margin: 1px 2px;
+    width: 200px;
+    height: 18px;
+    border-radius: 50px;
+    background-color: var(--cien);
+}
+
+.nHpOc {
+    font-family: 'Pixelify Sans';
+}
+
+.personaje {
+    padding: 10px;
+    width: 50px;
+    height: 75px;
+}
+
+#pj {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 50px;
+}
+
+.uno {
+    background-color: var(--yo);
+}
+
+.dos {
+    background-color: var(--enemigo);
+}
+
+#boton {
+    display: flex;
+    justify-content: center;
+}
+
+#butIn {
+    background-color: var(--old);
+    color: var(--old3);
+    font-size: 18px;
+    font-family: 'Pixelify Sans';
+    border: 5px double var(--old2);
+    border-radius: 15px;
+    padding: 7px 50px;
+    text-align: center;
+    margin: 10px;
+}
+
+#butIn:hover {
+    color: var(--white);
+    text-shadow: 0 0 5px var(--old3);
+    background-color: var(--old2);
+    border-color: var(--old);
+    transform: scale(1.1);
+}
+
+#butIn:disabled {
+    background-color: var(--old3);
+    border-color: var(--old);
+    color: var(--old2);
+}
+
+#log {
+    background-color: var(--old3);
+    color: var(--old2);
+    border: 10px double var(--old);
+    border-radius: 5px;
+    width: 500px;
+    height: 250px;
+    text-align: center;
+    margin: auto;
+    padding: 20px;
+    font-family: 'VT323';
+    font-size: 24px;
+}
