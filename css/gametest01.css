@@ -3,11 +3,12 @@
 :root {
     --shadow: #1a1a1a70;
     --yo: #fcdd30;
-    --enemigo: #8128c9;
+    --enemigo: #b85dec;
     --old: #9b7c54;
     --old2: #473728;
     --old3: #e9e0d3;
     --white: #fafafa;
+    --gray: #757575;
     --cienM: 200px;
     --cien: #00ff00;
     --setc: #aaff00;
@@ -63,8 +64,12 @@ nav {
     margin: 1px 2px;
     width: 200px;
     height: 18px;
-    border-radius: 50px;
+    border-radius: 150px;
     background-color: var(--cien);
+}
+
+.pro:disabled {
+    background-color: var(--gray);
 }
 
 .nHpOc {
@@ -86,30 +91,36 @@ nav {
 
 .uno {
     background-color: var(--yo);
+    border-radius: 20px;
 }
 
 .dos {
     background-color: var(--enemigo);
+    border-radius: 20px;
 }
 
 #boton {
     display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     justify-content: center;
+    align-items: center;
 }
 
-#butIn {
+#boton button {
     background-color: var(--old);
     color: var(--old3);
-    font-size: 18px;
-    font-family: 'Pixelify Sans';
     border: 5px double var(--old2);
+    font-size: 18px;
     border-radius: 15px;
-    padding: 7px 50px;
+    font-family: 'Pixelify Sans';
     text-align: center;
+    padding: 7px 50px;
     margin: 10px;
+    width: fit-content;
 }
 
-#butIn:hover {
+#boton button:hover {
     color: var(--white);
     text-shadow: 0 0 5px var(--old3);
     background-color: var(--old2);
@@ -117,15 +128,50 @@ nav {
     transform: scale(1.1);
 }
 
-#butIn:disabled {
+#boton button:disabled {
     background-color: var(--old3);
     border-color: var(--old);
     color: var(--old2);
 }
 
-#log {
+#habilidades {
+    margin: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.habs {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+}
+
+.hab {
+    text-align: center;
+    align-content: center;
+    border-radius: 50px;
+    padding: 10px;
+    width: 20px;
+    height: 20px;
+}
+
+.hab.p1 {
+    background-color: var(--yo);
+}
+
+.hab.p2 {
+    background-color: var(--enemigo);
+}
+
+#tablas {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+#tablas #sele1, #sele2, #log {
     background-color: var(--old3);
-    color: var(--old2);
     border: 10px double var(--old);
     border-radius: 5px;
     width: 500px;
@@ -133,6 +179,15 @@ nav {
     text-align: center;
     margin: auto;
     padding: 20px;
+    overflow-y: scroll;
+}
+
+#log, #sele1 p, #sele2 p {
+    color: var(--old2);
     font-family: 'VT323';
     font-size: 24px;
+}
+
+#sele1 p, #sele2 p {
+    margin: 0;
 }
