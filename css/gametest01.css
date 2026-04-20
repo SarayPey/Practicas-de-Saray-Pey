@@ -22,7 +22,6 @@
 }
 
 * {
-    font-family: sans-serif;
     transition: all .2s;
 }
 
@@ -179,10 +178,10 @@ nav {
     text-align: center;
     margin: auto;
     padding: 20px;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
-#log, #sele1 p, #sele2 p {
+#log, #sele1, #sele1 p, #sele1 .selector, #sele2, #sele2 p, #sele2 .selector {
     color: var(--old2);
     font-family: 'VT323';
     font-size: 24px;

@@ -24,22 +24,36 @@ let hpY = document.querySelector(".pro.u");
 hpY.disabled = true;
 let p1 = document.querySelector(".personaje.uno");
 let p1S = document.querySelector("#pj1Se");
+let oc1S = document.querySelector(".selector.yo");
+let habi1 = document.querySelectorAll(".hab.p1");
 
 let hpE = document.querySelector(".pro.d");
 hpE.disabled = true;
 let p2 = document.querySelector(".personaje.dos");
 let p2S = document.querySelector("#pj2Se");
+let oc2S = document.querySelector(".selector.en");
+let habi2 = document.querySelector(".hab.p2");
 
 let gameMode = false;
 
 p1S.addEventListener('click', () => {
+        oc1S.innerHTML  =""
         //Aquí debe habilitar la muestra y selección de personajes
         for (const x of personajes) {
-            let valor = document.createElement("div");
-            valor.innerHTML = `${x.nombre}<br>Rango de atK: ${x.minATK}-${x.maxATK}`;
+            let pNew = document.createElement('p');
+            let valor = `${x.nombre}<br>Rango de atk: ${x.minATK}-${x.maxATK}<br>`;
+            pNew.innerHTML += valor;
+            oc1S.appendChild(pNew);
             console.log(`${x.nombre} cargado exitosamente`);
-            messageNOC = `Jugador 1 planea jugar con ${x.nombre}`;
-            messageLog.innerHTML += messageNOC;
+            pNew.addEventListener('click', () => {
+                    messageNOC = `<br>Jugador 1 planea jugar con <b>${x.nombre}</b>`;
+                    p1.style.backgroundColor = x.color;
+                    for (let hab of habi1) {
+                        hab.style.backgroundColor = x.color;
+                    }                    messageLog.innerHTML += messageNOC;
+                }
+                //Buscando la forma para hacer que tenga una forma de seleccionar a un personaje
+            )
         }
     }
 )
