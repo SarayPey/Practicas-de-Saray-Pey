@@ -259,12 +259,12 @@ document.addEventListener('keydown', (ev) => {
 				p1.animate(
 					[{ backgroundColor: "#ff0000", transform: "translate(-4px)"},
 					 { backgroundColor: `${p1Char.color}`, transform: "translate(0px)"}
-					], {duration: 250, iterations: 1})
+					], {duration: 250, easing: "cubic-bezier(1,0,.28,1.01)", iterations: 1})
 				} else {
 				p2.animate(
 					[{ backgroundColor: "#ff0000", transform: "translate(4px)"},
 						{ backgroundColor: `${p2Char.color}`, transform: "translate(0px)"}
-					], {duration: 250, iterations: 1})
+					], {duration: 250, easing: "cubic-bezier(1,0,.28,1.01)", iterations: 1})
 				};
 			msg(`${turnoActual.nombre} usó ataque normal contra ${objetivo.nombre}.`);
 			msg(`${turnoActual.nombre} atacó con ${atk} de daño`);
