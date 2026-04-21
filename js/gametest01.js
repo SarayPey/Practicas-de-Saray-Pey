@@ -13,16 +13,20 @@ class OC {
 // Personajes //
 let default1 = new OC("Nombre OC", "noOC", 1, 10, 100, "var(--yo)");
 let default2 = new OC("Nombre OC", "noOC2", 1, 10, 100, "var(--enemigo)");
-let hasani = new OC("Hasani", "hasani", 5, 20, 100, "#296ed6");
-let zaire = new OC("Zaire", "zaire", 7, 26, 100, "#70c0b5");
-let varoun = new OC("Varoun", "varoun", 9, 23, 100, "#1f461c");
+let adam = new OC("Adam", "adam", 9, 28, 100, "#e99221"); // Mi detective traumado
+let hasani = new OC("Hasani", "hasani", 5, 21, 100, "#296ed6"); // Mago tritón traumado con DID
+let kizumi = new OC("Kizumi", "kizumi", 6, 23, 100, "#e699b9"); // Sirena que se está reincorporando a la vida normal en el océano
+let melissa = new OC("Melissa", "melissa", 10, 21, 100, "#5d2eb6"); // Asistente del traumado
+let varoun = new OC("Varoun", "varoun", 9, 23, 100, "#1f461c"); // Hermano malo del rey del océano
+let zaire = new OC("Zaire", "zaire", 8, 26, 100, "#70c0b5"); // Rey del océano que es mestizo de dos especies del océano y básicamente deja que Hasani y Kizumi vivan en el castillo con él
 
-let personajes = [hasani, zaire, varoun];
+let personajes = [adam, hasani, kizumi, melissa, varoun, zaire];
 
 // Variables
 let ini = document.querySelector("#butIn");
 let messageLog = document.querySelector("#log");
 let gameMode = false;
+let nA = document.querySelector(".hab.p12"); // Botón de espacio para celulares, es un gradiente entre el color del jugador 1 y del jugador 2
 
 let nom1 = document.querySelector("#name1")
 let hpY = document.querySelector(".pro.u");
@@ -46,7 +50,6 @@ let hpC2 = document.querySelector(".nHpOc.d")
 
 p1S.addEventListener('click', () => {
 		oc1S.innerHTML = "";
-		//Aquí debe habilitar la muestra y selección de personajes
 		for (const x of personajes) {
 			let pNew = document.createElement('p');
 			let valor = `${x.nombre}<br>Rango de atk: ${x.minATK}-${x.maxATK}<br>`;
@@ -61,10 +64,12 @@ p1S.addEventListener('click', () => {
 						messageNOC = `<br>Jugador 1 planea jugar con ${x.nombre}`;
 						p1.style.backgroundColor = x.color;
 						nom1.innerHTML = x.nombre;
+						nA.style.backgroundImage = `linear-gradient(90deg, ${p1Char.color}, ${p2Char.color})`;
 						for (let hab of habi1) {
 							hab.style.backgroundColor = x.color;
 						}
 						messageLog.innerHTML += messageNOC;
+						messageLog.scrollTop = messageLog.scrollHeight;
 					}
 				}
 			)
@@ -89,10 +94,12 @@ p2S.addEventListener('click', () => {
 						messageNOC = `<br>Jugador 2 planea jugar con ${x.nombre}`;
 						p2.style.backgroundColor = x.color;
 						nom2.innerHTML = x.nombre;
+						nA.style.backgroundImage = `linear-gradient(90deg, ${p1Char.color}, ${p2Char.color})`;
 						for (let hab of habi2) {
 							hab.style.backgroundColor = x.color;
 						}
 						messageLog.innerHTML += messageNOC;
+						messageLog.scrollTop = messageLog.scrollHeight;
 					}
 				}
 			)
@@ -100,9 +107,19 @@ p2S.addEventListener('click', () => {
 	}
 )
 
+if (!gameMode){
+	ini.disabled = false;
+	p1S.disabled = false;
+	oc1S.disabled = false;
+	p1Char.hp = 100;
+	p2S.disabled = false;
+	oc2S.disabled = false;
+	p2Char.hp = 100
+}
+
 ini.addEventListener('click', () => {
 		if(p1Char === default1 || p2Char === default2){
-			alert("Aviso: falta uno o ambos espacios.")
+			alert("Aviso: falta uno o ambos espacios.");
 		} else {
 			oc1S.innerHTML = "";
 			oc2S.innerHTML = "";
@@ -125,34 +142,40 @@ ini.addEventListener('click', () => {
 let turnoActual = null;
 let objetivo = null;
 
+function msg(mensaje){
+	messageLog.innerHTML += "<br>"
+	messageLog.innerHTML += mensaje;
+	messageLog.scrollTop = messageLog.scrollHeight;
+};
+
 function game(){
-	const messageIn = "<br>--HA INICIADO UNA PARTIDA--"
-	messageLog.innerHTML += messageIn;
-	console.log(messageIn);
+	const messageIn = "--HA INICIADO UNA PARTIDA--"
+	msg(messageIn);
 	hpY.disabled = false;
-	console.log(`Habilitando personaje 1: ${p1Char.nombre}`)
+	console.log(`Habilitando personaje 1: ${p1Char.nombre}`);
 	hpE.disabled = false;
-	console.log(`Habilitando personaje 2: ${p2Char.nombre}`)
-	let messageTur = "<br>Asignando primer turno…";
+	console.log(`Habilitando personaje 2: ${p2Char.nombre}`);
+	let messageTur = "Asignando primer turno…";
 	turnoIni = Math.floor(Math.random() * 2);
 	console.log(turnoIni);
 	if(turnoIni === 1){
-		messageTur += `<br>El primer turno es de Jugador 1 (${p1Char.nombre})`;
+		messageTur += `El primer turno es de Jugador 1 (${p1Char.nombre})`;
 		turnoActual = p1Char;
 		objetivo = p2Char;
 	} else {
-		messageTur += `<br>El primer turno es de Jugador 2 (${p2Char.nombre})`;
+		messageTur += `El primer turno es de Jugador 2 (${p2Char.nombre})`;
 		turnoActual = p2Char;
 		objetivo = p1Char;
 	};
-	messageLog.innerHTML += messageTur;
-	messageLog.innerHTML += "<br>Esperando movimiento…";
-	messageLog.innerHTML += "<br>Presiona ESPACIO o una tecla de habilidad para atacar…";
+	msg(messageTur);
+	msg("Esperando movimiento…");
+	msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
 };
 
 function lifeUpdate(){
 	if(objetivo === p1Char){
 		hpC1.innerHTML = p1Char.hp + "/100"
+		hpY.style.width = p1Char.hp * 2 + "px"
 		if (p1Char.hp > 75){
 			hpY.style.backgroundColor = "#00ff00";
 		} else if(p1Char.hp <= 75 && p1Char.hp > 50){
@@ -170,19 +193,20 @@ function lifeUpdate(){
 		}
 	} else {
 		hpC2.innerHTML = p2Char.hp + "/100"
-		if (p1Char.hp > 75){
-			hpY.style.backgroundColor = "#00ff00";
-		} else if(p1Char.hp <= 75 && p1Char.hp > 50){
+		hpE.style.width = p2Char.hp * 2 + "px"
+		if (p2Char.hp > 75){
+			hpE.style.backgroundColor = "#00ff00";
+		} else if(p2Char.hp <= 75 && p2Char.hp > 50){
 			hpE.style.backgroundColor = "#aaff00";
-		} else if(p1Char.hp <= 50 && p1Char.hp > 25){
+		} else if(p2Char.hp <= 50 && p2Char.hp > 25){
 			hpE.style.backgroundColor = "#ffff00"
-		} else if(p1Char.hp <= 25 && p1Char.hp > 10){
+		} else if(p2Char.hp <= 25 && p2Char.hp > 10){
 			hpE.style.backgroundColor = "#ffaa00"
-		} else if(p1Char.hp <= 10 && p1Char.hp > 5){
+		} else if(p2Char.hp <= 10 && p2Char.hp > 5){
 			hpE.style.backgroundColor = "#ff7700"
-		} else if(p1Char.hp <= 5 && p1Char.hp > 0){
+		} else if(p2Char.hp <= 5 && p2Char.hp > 0){
 			hpE.style.backgroundColor = "#ff5500"
-		} else if(p1Char.hp <= 0){
+		} else if(p2Char.hp <= 0){
 			hpE.style.backgroundColor = "#ff0000"
 		}
 	}
@@ -191,41 +215,71 @@ function lifeUpdate(){
 function winCheck(){
 	if (p1Char.hp <= 0){
 		p1Char.hp = 0;
-		messageLog += `<br>¡${p2Char.nombre} ha ganado!`;
-		messageLog += "<br>¡SE HA ACABADO EL JUEGO!";
-	} else {
+		msg(`¡${p2Char.nombre} ha ganado!`);
+		msg("¡SE HA ACABADO EL JUEGO!");
+		gameMode = false;
+		ini.disabled = false;
+		p1S.disabled = false;
+		oc1S.disabled = false;
+		p1Char.hp = 100;
+		p2S.disabled = false;
+		oc2S.disabled = false;
+		p2Char.hp = 100
+	} else if (p2Char.hp <= 0){
 		p2Char.hp = 0;
-		messageLog += `<br>¡${p1Char.nombre} ha ganado!`;
-		messageLog += "<br>¡SE HA ACABADO EL JUEGO!";
+		msg(`¡${p1Char.nombre} ha ganado!`);
+		msg("¡SE HA ACABADO EL JUEGO!");
+		gameMode = false;
+		ini.disabled = false;
+		p1S.disabled = false;
+		oc1S.disabled = false;
+		p1Char.hp = 100;
+		p2S.disabled = false;
+		oc2S.disabled = false;
+		p2Char.hp = 100
+	} else {
+		return;
 	}
 	gameMode = false;
 }
   
 document.addEventListener('keydown', (ev) => {
+		console.log(ev.key);
 		if(!gameMode){
 			return;
 		}
-		console.log(ev.key);
 		if(ev.key === ' '){
 			console.log("Ataque normal");
-			let atk = Math.floor(Math.random() * turnoActual.maxATK) + turnoActual.minATK;
+			let atk = Math.floor(Math.random() * (turnoActual.maxATK - turnoActual.minATK + 1)) + turnoActual.minATK;
 			objetivo.hp -= atk;
-			messageLog.innerHTML += `<br>${turnoActual.nombre} usó ataque normal contra ${objetivo.nombre}.`
-			messageLog.innerHTML += `<br>${turnoActual.nombre} atacó con ${atk} de daño`;
+			if(objetivo.hp < 0){
+				objetivo.hp = 0;
+			}
+			msg(`${turnoActual.nombre} usó ataque normal contra ${objetivo.nombre}.`);
+			msg(`${turnoActual.nombre} atacó con ${atk} de daño`);
 			lifeUpdate();
-			messageLog.innerHTML += "<br>--HA TERMINADO EL TURNO";
-			winCheck;
+			msg("--HA TERMINADO EL TURNO");
+
+			winCheck();
+			
+			if(!gameMode){
+				return;
+			}
+
 			if(turnoActual === p1Char){
 				turnoActual = p2Char;
 				objetivo = p1Char;
-				messageLog.innerHTML += `<br>¡Es turno del jugador 2 (${turnoActual.nombre})!`
-				messageLog.innerHTML += "<br>Presiona ESPACIO o una tecla de habilidad para atacar…";
+				msg(`¡Es turno del jugador 2 (${turnoActual.nombre})!`);
+				msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
 			} else {
 				turnoActual = p1Char;
 				objetivo = p2Char;
-				messageLog.innerHTML += `<br>¡Es turno del jugador 1 (${turnoActual.nombre})!`
-				messageLog.innerHTML += "<br>Presiona ESPACIO o una tecla de habilidad para atacar…";
+				msg(`¡Es turno del jugador 1 (${turnoActual.nombre})!`);
+				msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
 			}
 		}
+		// if (turnoActual === p1Char && ev.key === 'a'){
+		// 	return turnoActual.hab1;
+		// }
 	}
 )
