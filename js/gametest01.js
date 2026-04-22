@@ -26,7 +26,20 @@ let personajes = [adam, hasani, kizumi, melissa, varoun, zaire];
 let ini = document.querySelector("#butIn");
 let messageLog = document.querySelector("#log");
 let gameMode = false;
+
 let nA = document.querySelector(".hab.p12"); // Botón de espacio para celulares, es un gradiente entre el color del jugador 1 y del jugador 2
+
+let kW = document.querySelector(".hab.p1.un");
+let kA = document.querySelector(".hab.p1.do");
+let kS = document.querySelector(".hab.p1.tr");
+let kD = document.querySelector(".hab.p1.cu");
+let kC = document.querySelector(".hab.p1.ci");
+
+let kN = document.querySelector(".hab.p2.un");
+let kJ = document.querySelector(".hab.p2.do");
+let kO = document.querySelector(".hab.p2.tr");
+let kI = document.querySelector(".hab.p2.cu");
+let kM = document.querySelector(".hab.p2.ci");
 
 let nom1 = document.querySelector("#name1")
 let hpY = document.querySelector(".pro.u");
@@ -49,63 +62,61 @@ let habi2 = document.querySelectorAll(".hab.p2");
 let hpC2 = document.querySelector(".nHpOc.d")
 
 p1S.addEventListener('click', () => {
-		oc1S.innerHTML = "";
-		for (const x of personajes) {
-			let pNew = document.createElement('p');
-			let valor = `${x.nombre}<br>Rango de atk: ${x.minATK}-${x.maxATK}<br>`;
-			pNew.innerHTML += valor;
-			oc1S.appendChild(pNew);
-			console.log(`${x.nombre} cargado exitosamente`);
-			pNew.addEventListener('click', () => {
-					if (p2Char.varName === x.varName) {
-						alert("Personaje ocupado")
-					} else {
-						p1Char = x;
-						messageNOC = `<br>Jugador 1 planea jugar con ${x.nombre}`;
-						p1.style.backgroundColor = x.color;
-						nom1.innerHTML = x.nombre;
-						nA.style.backgroundImage = `linear-gradient(90deg, ${p1Char.color}, ${p2Char.color})`;
-						for (let hab of habi1) {
-							hab.style.backgroundColor = x.color;
-						}
-						messageLog.innerHTML += messageNOC;
-						messageLog.scrollTop = messageLog.scrollHeight;
+	oc1S.innerHTML = "";
+	for (const x of personajes) {
+		let pNew = document.createElement('p');
+		let valor = `${x.nombre}<br>Rango de atk: ${x.minATK}-${x.maxATK}<br>`;
+		pNew.innerHTML += valor;
+		oc1S.appendChild(pNew);
+		console.log(`${x.nombre} cargado exitosamente`);
+		pNew.addEventListener('click', () => {
+				if (p2Char.varName === x.varName) {
+					alert("Personaje ocupado")
+				} else {
+					p1Char = x;
+					messageNOC = `<br>Jugador 1 planea jugar con ${x.nombre}`;
+					p1.style.backgroundColor = x.color;
+					nom1.innerHTML = x.nombre;
+					nA.style.backgroundImage = `linear-gradient(90deg, ${p1Char.color}, ${p2Char.color})`;
+					for (let hab of habi1) {
+						hab.style.backgroundColor = x.color;
 					}
+					messageLog.innerHTML += messageNOC;
+					messageLog.scrollTop = messageLog.scrollHeight;
 				}
-			)
-		}
+			}
+		)
 	}
-)
+});
 
 p2S.addEventListener('click', () => {
-		oc2S.innerHTML = "";
-		//Aquí debe habilitar la muestra y selección de personajes
-		for (const x of personajes) {
-			let pNew = document.createElement('p');
-			let valor = `${x.nombre}<br>Rango de atk: ${x.minATK}-${x.maxATK}<br>`;
-			pNew.innerHTML += valor;
-			oc2S.appendChild(pNew);
-			console.log(`${x.nombre} cargado exitosamente`);
-			pNew.addEventListener('click', () => {
-					if (p1Char.varName === x.varName) {
-						alert("Personaje ocupado")
-					} else {
-						p2Char = x;
-						messageNOC = `<br>Jugador 2 planea jugar con ${x.nombre}`;
-						p2.style.backgroundColor = x.color;
-						nom2.innerHTML = x.nombre;
-						nA.style.backgroundImage = `linear-gradient(90deg, ${p1Char.color}, ${p2Char.color})`;
-						for (let hab of habi2) {
-							hab.style.backgroundColor = x.color;
-						}
-						messageLog.innerHTML += messageNOC;
-						messageLog.scrollTop = messageLog.scrollHeight;
+	oc2S.innerHTML = "";
+	//Aquí debe habilitar la muestra y selección de personajes
+	for (const x of personajes) {
+		let pNew = document.createElement('p');
+		let valor = `${x.nombre}<br>Rango de atk: ${x.minATK}-${x.maxATK}<br>`;
+		pNew.innerHTML += valor;
+		oc2S.appendChild(pNew);
+		console.log(`${x.nombre} cargado exitosamente`);
+		pNew.addEventListener('click', () => {
+				if (p1Char.varName === x.varName) {
+					alert("Personaje ocupado")
+				} else {
+					p2Char = x;
+					messageNOC = `<br>Jugador 2 planea jugar con ${x.nombre}`;
+					p2.style.backgroundColor = x.color;
+					nom2.innerHTML = x.nombre;
+					nA.style.backgroundImage = `linear-gradient(90deg, ${p1Char.color}, ${p2Char.color})`;
+					for (let hab of habi2) {
+						hab.style.backgroundColor = x.color;
 					}
+					messageLog.innerHTML += messageNOC;
+					messageLog.scrollTop = messageLog.scrollHeight;
 				}
-			)
-		}
+			}
+		)
 	}
-)
+});
 
 if (!gameMode){
 	ini.disabled = false;
@@ -118,33 +129,73 @@ if (!gameMode){
 }
 
 ini.addEventListener('click', () => {
-		if(p1Char === default1 || p2Char === default2){
-			alert("Aviso: falta uno o ambos espacios.");
-		} else {
-			oc1S.innerHTML = "";
-			oc2S.innerHTML = "";
-			ini.disabled = true;
-			p1S.disabled = true;
-			oc1S.disabled = true;
-			hpC1.innerHTML = p1Char.hp + "/100"
-			hpY.style.width = "var(--cienM)";
-			hpY.style.backgroundColor = "var(--cien)";
-			hpE.style.width = "var(--cienM)";
-			hpE.style.backgroundColor = "var(--cien)";
-			p2S.disabled = true;
-			oc2S.disabled = true;
-			hpC2.innerHTML = p2Char.hp + "/100"
-			console.log("Iniciando juego");
-			gameMode = true;
-			if(gameMode){
-				game();
-			}
+	if(p1Char === default1 || p2Char === default2){
+		alert("Aviso: falta uno o ambos espacios.");
+	} else {
+		oc1S.innerHTML = "";
+		oc2S.innerHTML = "";
+		ini.disabled = true;
+		p1S.disabled = true;
+		oc1S.disabled = true;
+		hpC1.innerHTML = p1Char.hp + "/100"
+		hpY.style.width = "var(--cienM)";
+		hpY.style.backgroundColor = "var(--cien)";
+		hpE.style.width = "var(--cienM)";
+		hpE.style.backgroundColor = "var(--cien)";
+		p2S.disabled = true;
+		oc2S.disabled = true;
+		hpC2.innerHTML = p2Char.hp + "/100"
+		console.log("Iniciando juego");
+		gameMode = true;
+		if(gameMode){
+			game();
 		}
 	}
-);
+});
 
 let turnoActual = null;
 let objetivo = null;
+
+function basicG(){
+	if(!gameMode){
+		return;
+	}
+	let atk = Math.floor(Math.random() * (turnoActual.maxATK - turnoActual.minATK + 1)) + turnoActual.minATK;
+	objetivo.hp -= atk;
+	if(objetivo.hp < 0){
+		objetivo.hp = 0;
+	}
+	if(objetivo === p1Char){
+		p1.animate(
+			[{ backgroundColor: "#ff0000", transform: "translate(-4px)"},
+			{ backgroundColor: `${p1Char.color}`, transform: "translate(0px)"}
+			], {duration: 250, easing: "cubic-bezier(1,0,.28,1.01)", iterations: 1})
+		} else {
+		p2.animate(
+			[{ backgroundColor: "#ff0000", transform: "translate(4px)"},
+				{ backgroundColor: `${p2Char.color}`, transform: "translate(0px)"}
+			], {duration: 250, easing: "cubic-bezier(1,0,.28,1.01)", iterations: 1})
+		};
+	msg(`${turnoActual.nombre} usó ataque normal contra ${objetivo.nombre}.`);
+	msg(`${turnoActual.nombre} atacó con ${atk} de daño`);
+	lifeUpdate();
+	msg("--HA TERMINADO EL TURNO");
+	winCheck();
+	if(!gameMode){
+		return;
+	}
+	if(turnoActual === p1Char){
+		turnoActual = p2Char;
+		objetivo = p1Char;
+		msg(`¡Es turno del jugador 2 (${turnoActual.nombre})!`);
+		msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
+	} else {
+		turnoActual = p1Char;
+		objetivo = p2Char;
+		msg(`¡Es turno del jugador 1 (${turnoActual.nombre})!`);
+		msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
+	}
+}
 
 function msg(mensaje){
 	messageLog.innerHTML += "<br>"
@@ -159,19 +210,18 @@ function game(){
 	console.log(`Habilitando personaje 1: ${p1Char.nombre}`);
 	hpE.disabled = false;
 	console.log(`Habilitando personaje 2: ${p2Char.nombre}`);
-	let messageTur = "Asignando primer turno…";
+	msg("Asignando primer turno…");
 	turnoIni = Math.floor(Math.random() * 2);
 	console.log(turnoIni);
 	if(turnoIni === 1){
-		messageTur += `El primer turno es de Jugador 1 (${p1Char.nombre})`;
+		msg(`El primer turno es de Jugador 1 (${p1Char.nombre})`);
 		turnoActual = p1Char;
 		objetivo = p2Char;
 	} else {
-		messageTur += `El primer turno es de Jugador 2 (${p2Char.nombre})`;
+		msg(`El primer turno es de Jugador 2 (${p2Char.nombre})`);
 		turnoActual = p2Char;
 		objetivo = p1Char;
 	};
-	msg(messageTur);
 	msg("Esperando movimiento…");
 	msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
 };
@@ -254,87 +304,42 @@ document.addEventListener('keydown', (ev) => {
 		}
 		if(ev.key === ' '){
 			console.log("Ataque normal");
-			let atk = Math.floor(Math.random() * (turnoActual.maxATK - turnoActual.minATK + 1)) + turnoActual.minATK;
-			objetivo.hp -= atk;
-			if(objetivo.hp < 0){
-				objetivo.hp = 0;
-			}
-			if(objetivo === p1Char){
-				p1.animate(
-					[{ backgroundColor: "#ff0000", transform: "translate(-4px)"},
-					 { backgroundColor: `${p1Char.color}`, transform: "translate(0px)"}
-					], {duration: 250, easing: "cubic-bezier(1,0,.28,1.01)", iterations: 1})
-				} else {
-				p2.animate(
-					[{ backgroundColor: "#ff0000", transform: "translate(4px)"},
-						{ backgroundColor: `${p2Char.color}`, transform: "translate(0px)"}
-					], {duration: 250, easing: "cubic-bezier(1,0,.28,1.01)", iterations: 1})
-				};
-			msg(`${turnoActual.nombre} usó ataque normal contra ${objetivo.nombre}.`);
-			msg(`${turnoActual.nombre} atacó con ${atk} de daño`);
-			lifeUpdate();
-			msg("--HA TERMINADO EL TURNO");
-			winCheck();
-			if(!gameMode){
-				return;
-			}
-			if(turnoActual === p1Char){
-				turnoActual = p2Char;
-				objetivo = p1Char;
-				msg(`¡Es turno del jugador 2 (${turnoActual.nombre})!`);
-				msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
-			} else {
-				turnoActual = p1Char;
-				objetivo = p2Char;
-				msg(`¡Es turno del jugador 1 (${turnoActual.nombre})!`);
-				msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
-			}
+			basicG()
 		}
+
 		// if (turnoActual === p1Char && ev.key === 'a'){
 		// 	return turnoActual.hab1;
 		// }
-	}
-)
+		// if (turnoActual === p1Char && ev.key === 'w'){
+		// 	return turnoActual.hab1;
+		// }
+		// if (turnoActual === p1Char && ev.key === 's'){
+		// 	return turnoActual.hab1;
+		// }
+		// if (turnoActual === p1Char && ev.key === 'a'){
+		// 	return turnoActual.hab1;
+		// }
+		// if (turnoActual === p1Char && ev.key === 'c'){
+		// 	return turnoActual.hab1;
+		// }
+
+		// if (turnoActual === p2Char && ev.key === 'n'){
+		// 	return turnoActual.hab1;
+		// }
+		// if (turnoActual === p2Char && ev.key === 'j'){
+		// 	return turnoActual.hab1;
+		// }
+		// if (turnoActual === p2Char && ev.key === 'o'){
+		// 	return turnoActual.hab1;
+		// }
+		// if (turnoActual === p2Char && ev.key === 'i'){
+		// 	return turnoActual.hab1;
+		// }
+		// if (turnoActual === p2Char && ev.key === 'm'){
+		// 	return turnoActual.hab1;
+		// }
+})
 
 nA.addEventListener('click', () => {
-		if(!gameMode){
-			return;
-		}
-		console.log("Ataque normal");
-		let atk = Math.floor(Math.random() * (turnoActual.maxATK - turnoActual.minATK + 1)) + turnoActual.minATK;
-		objetivo.hp -= atk;
-		if(objetivo.hp < 0){
-			objetivo.hp = 0;
-		}
-		if(objetivo === p1Char){
-			p1.animate(
-				[{ backgroundColor: "#ff0000", transform: "translate(-4px)"},
-				{ backgroundColor: `${p1Char.color}`, transform: "translate(0px)"}
-				], {duration: 250, easing: "cubic-bezier(1,0,.28,1.01)", iterations: 1})
-			} else {
-			p2.animate(
-				[{ backgroundColor: "#ff0000", transform: "translate(4px)"},
-					{ backgroundColor: `${p2Char.color}`, transform: "translate(0px)"}
-				], {duration: 250, easing: "cubic-bezier(1,0,.28,1.01)", iterations: 1})
-			};
-		msg(`${turnoActual.nombre} usó ataque normal contra ${objetivo.nombre}.`);
-		msg(`${turnoActual.nombre} atacó con ${atk} de daño`);
-		lifeUpdate();
-		msg("--HA TERMINADO EL TURNO");
-		winCheck();
-		if(!gameMode){
-			return;
-		}
-		if(turnoActual === p1Char){
-			turnoActual = p2Char;
-			objetivo = p1Char;
-			msg(`¡Es turno del jugador 2 (${turnoActual.nombre})!`);
-			msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
-		} else {
-			turnoActual = p1Char;
-			objetivo = p2Char;
-			msg(`¡Es turno del jugador 1 (${turnoActual.nombre})!`);
-			msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
-		}
-	}
-)
+		basicG()
+})
