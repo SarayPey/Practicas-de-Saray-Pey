@@ -127,6 +127,10 @@ ini.addEventListener('click', () => {
 			p1S.disabled = true;
 			oc1S.disabled = true;
 			hpC1.innerHTML = p1Char.hp + "/100"
+			hpY.style.width = "var(--cienM)";
+			hpY.style.backgroundColor = "var(--cien)";
+			hpE.style.width = "var(--cienM)";
+			hpE.style.backgroundColor = "var(--cien)";
 			p2S.disabled = true;
 			oc2S.disabled = true;
 			hpC2.innerHTML = p2Char.hp + "/100"
@@ -270,13 +274,10 @@ document.addEventListener('keydown', (ev) => {
 			msg(`${turnoActual.nombre} atacó con ${atk} de daño`);
 			lifeUpdate();
 			msg("--HA TERMINADO EL TURNO");
-
 			winCheck();
-			
 			if(!gameMode){
 				return;
 			}
-
 			if(turnoActual === p1Char){
 				turnoActual = p2Char;
 				objetivo = p1Char;
@@ -292,5 +293,48 @@ document.addEventListener('keydown', (ev) => {
 		// if (turnoActual === p1Char && ev.key === 'a'){
 		// 	return turnoActual.hab1;
 		// }
+	}
+)
+
+nA.addEventListener('click', () => {
+		if(!gameMode){
+			return;
+		}
+		console.log("Ataque normal");
+		let atk = Math.floor(Math.random() * (turnoActual.maxATK - turnoActual.minATK + 1)) + turnoActual.minATK;
+		objetivo.hp -= atk;
+		if(objetivo.hp < 0){
+			objetivo.hp = 0;
+		}
+		if(objetivo === p1Char){
+			p1.animate(
+				[{ backgroundColor: "#ff0000", transform: "translate(-4px)"},
+				{ backgroundColor: `${p1Char.color}`, transform: "translate(0px)"}
+				], {duration: 250, easing: "cubic-bezier(1,0,.28,1.01)", iterations: 1})
+			} else {
+			p2.animate(
+				[{ backgroundColor: "#ff0000", transform: "translate(4px)"},
+					{ backgroundColor: `${p2Char.color}`, transform: "translate(0px)"}
+				], {duration: 250, easing: "cubic-bezier(1,0,.28,1.01)", iterations: 1})
+			};
+		msg(`${turnoActual.nombre} usó ataque normal contra ${objetivo.nombre}.`);
+		msg(`${turnoActual.nombre} atacó con ${atk} de daño`);
+		lifeUpdate();
+		msg("--HA TERMINADO EL TURNO");
+		winCheck();
+		if(!gameMode){
+			return;
+		}
+		if(turnoActual === p1Char){
+			turnoActual = p2Char;
+			objetivo = p1Char;
+			msg(`¡Es turno del jugador 2 (${turnoActual.nombre})!`);
+			msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
+		} else {
+			turnoActual = p1Char;
+			objetivo = p2Char;
+			msg(`¡Es turno del jugador 1 (${turnoActual.nombre})!`);
+			msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
+		}
 	}
 )
