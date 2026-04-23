@@ -77,7 +77,7 @@ p1S.addEventListener('click', () => {
 		console.log(`${x.nombre} cargado exitosamente`);
 		pNew.addEventListener('click', () => {
 				if (p2Char.varName === x.varName) {
-					alert("Personaje ocupado")
+					alert("Personaje ocupado");
 				} else {
 					p1Char = x;
 					messageNOC = `<br>Jugador 1 planea jugar con ${x.nombre}`;
@@ -106,7 +106,7 @@ p2S.addEventListener('click', () => {
 		console.log(`${x.nombre} cargado exitosamente`);
 		pNew.addEventListener('click', () => {
 				if (p1Char.varName === x.varName) {
-					alert("Personaje ocupado")
+					alert("Personaje ocupado");
 				} else {
 					p2Char = x;
 					messageNOC = `<br>Jugador 2 planea jugar con ${x.nombre}`;
@@ -201,13 +201,13 @@ function basicG(){
 };
 
 function msg(mensaje){
-	messageLog.innerHTML += "<br>"
+	messageLog.innerHTML += "<br>";
 	messageLog.innerHTML += mensaje;
 	messageLog.scrollTop = messageLog.scrollHeight;
 };
 
 function game(){
-	const messageIn = "--HA INICIADO UNA PARTIDA--"
+	const messageIn = "--HA INICIADO UNA PARTIDA--";
 	msg(messageIn);
 	hpY.disabled = false;
 	console.log(`Habilitando personaje 1: ${p1Char.nombre}`);
@@ -310,7 +310,7 @@ document.addEventListener('keydown', (ev) => {
 	if(!gameMode){
 		return;
 	}
-		basicG()
+		basicG();
 	}
 
 	// if (turnoActual === p1Char && ev.key === 'a'){
@@ -380,5 +380,5 @@ nA.addEventListener('click', () => {
 	if(!gameMode){
 		return;
 	}
-	basicG()
+	basicG();
 });
