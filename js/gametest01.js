@@ -8,20 +8,25 @@ class OC {
 		this.hp = maxHp;
 		this.color = color;
 	}
-}
+};
 
 // Personajes //
+let akiko     = new OC("Akiko", "akiko", 7, 17, 124, "#fcef40");      // Lobita inmortal
+let adam      = new OC("Adam", "adam", 9, 28, 105, "#e99221");        // Mi detective traumado
+let hasani    = new OC("Hasani", "hasani", 7, 22, 100, "#296ed6");    // Mago tritón traumado con DID
+let jacob     = new OC("Jacob", "jacob", 12, 27, 94, "#630d0d");      // Terrícola torturado
+let kizumi    = new OC("Kizumi", "kizumi", 6, 24, 100, "#e699b9");    // Sirena que se está reincorporando a la vida normal en el océano
+let melissa   = new OC("Melissa", "melissa", 10, 23, 100, "#5d2eb6"); // Asistente del traumado
+let varoun    = new OC("Varoun", "varoun", 9, 23, 100, "#1f461c");    // Hermano malo del rey del océano
+let yun       = new OC("Yun", "yun", 9, 23, 100, "#2a81bb");          // El que garantiza que Zelie no haga algo malo
+let zaire     = new OC("Zaire", "zaire", 10, 28, 100, "#70c0b5");     // Rey del océano mestizo de dos especies del océano y que deja que Hasani y Kizumi vivan con él
+let zelie     = new OC("Zelie", "zelie", 12, 26, 95, "#d65797");      // No sé qué decir de ella-
+
+// Defecto para el jugador
 let default1 = new OC("Nombre OC", "noOC", 1, 10, 100, "var(--yo)");
 let default2 = new OC("Nombre OC", "noOC2", 1, 10, 100, "var(--enemigo)");
-let akiko = new OC("Akiko", "akiko", 8, 18, 124, "#fcef40"); // Lobita inmortal
-let adam = new OC("Adam", "adam", 9, 28, 100, "#e99221"); // Mi detective traumado
-let hasani = new OC("Hasani", "hasani", 7, 22, 100, "#296ed6"); // Mago tritón traumado con DID
-let kizumi = new OC("Kizumi", "kizumi", 6, 21, 100, "#e699b9"); // Sirena que se está reincorporando a la vida normal en el océano
-let melissa = new OC("Melissa", "melissa", 10, 23, 100, "#5d2eb6"); // Asistente del traumado
-let varoun = new OC("Varoun", "varoun", 9, 23, 100, "#1f461c"); // Hermano malo del rey del océano
-let zaire = new OC("Zaire", "zaire", 8, 26, 100, "#70c0b5"); // Rey del océano que es mestizo de dos especies del océano y básicamente deja que Hasani y Kizumi vivan en el castillo con él
 
-let personajes = [akiko, adam, hasani, kizumi, melissa, varoun, zaire];
+let personajes = [akiko, adam, hasani, jacob, kizumi, melissa, varoun, yun, zaire, zelie];
 
 // Variables
 let ini = document.querySelector("#butIn");
@@ -42,23 +47,23 @@ let kO = document.querySelector(".hab.p2.tr");
 let kI = document.querySelector(".hab.p2.cu");
 let kM = document.querySelector(".hab.p2.ci");
 
-let nom1 = document.querySelector("#name1")
+let nom1 = document.querySelector("#name1");
 let hpY = document.querySelector(".pro.u");
 let p1 = document.querySelector(".personaje.uno");
 let p1S = document.querySelector("#pj1Se");
 let oc1S = document.querySelector(".selector.yo");
 let habi1 = document.querySelectorAll(".hab.p1");
-let hpC1 = document.querySelector(".nHpOc.u")
-hpY.disabled = true;
+let hpC1 = document.querySelector(".nHpOc.u");
 let p1Char = default1;
+hpY.disabled = true;
 
-let nom2 = document.querySelector("#name2")
+let nom2 = document.querySelector("#name2");
 let hpE = document.querySelector(".pro.d");
 let p2 = document.querySelector(".personaje.dos");
 let p2S = document.querySelector("#pj2Se");
 let oc2S = document.querySelector(".selector.en");
 let habi2 = document.querySelectorAll(".hab.p2");
-let hpC2 = document.querySelector(".nHpOc.d")
+let hpC2 = document.querySelector(".nHpOc.d");
 let p2Char = default2;
 hpE.disabled = true;
 
@@ -127,7 +132,7 @@ if (!gameMode){
 	p2S.disabled = false;
 	oc2S.disabled = false;
 	p2Char.hp = p1Char.maxHp;
-}
+};
 
 ini.addEventListener('click', () => {
 	if(p1Char === default1 || p2Char === default2){
@@ -193,7 +198,7 @@ function basicG(){
 		msg(`¡Es turno del jugador 1 (${turnoActual.nombre})!`);
 		msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
 	}
-}
+};
 
 function msg(mensaje){
 	messageLog.innerHTML += "<br>"
@@ -262,7 +267,7 @@ function lifeUpdate(){
 			hpE.style.backgroundColor = "#ff0000"
 		}
 	}
-}
+};
 
 function winCheck(){
 	if (p1Char.hp <= 0){
@@ -293,7 +298,7 @@ function winCheck(){
 		return;
 	}
 	gameMode = false;
-}
+};
   
 document.addEventListener('keydown', (ev) => {
 	console.log(ev.key);
@@ -340,25 +345,40 @@ document.addEventListener('keydown', (ev) => {
 	// }
 
 	// if (turnoActual === p2Char && ev.key === 'n'){
+	// if(!gameMode){
+	// 	return;
+	// }
 	// 	return turnoActual.hab1;
 	// }
 	// if (turnoActual === p2Char && ev.key === 'j'){
+	// if(!gameMode){
+	// 	return;
+	// }
 	// 	return turnoActual.hab2;
 	// }
 	// if (turnoActual === p2Char && ev.key === 'o'){
+	// if(!gameMode){
+	// 	return;
+	// }
 	// 	return turnoActual.hab3;
 	// }
 	// if (turnoActual === p2Char && ev.key === 'i'){
+	// if(!gameMode){
+	// 	return;
+	// }
 	// 	return turnoActual.hab4;
 	// }
 	// if (turnoActual === p2Char && ev.key === 'm'){
+	// if(!gameMode){
+	// 	return;
+	// }
 	// 	return turnoActual.hab5;
 	// }
-})
+});
 
 nA.addEventListener('click', () => {
 	if(!gameMode){
 		return;
 	}
 	basicG()
-})
+});
