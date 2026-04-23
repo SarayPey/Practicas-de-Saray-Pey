@@ -1,11 +1,11 @@
 class OC {
-	constructor(nombre, varName, minATK, maxATK, hp, color){
+	constructor(nombre, varName, minATK, maxATK, maxHp, color){
 		this.nombre = nombre;
 		this.varName = varName;
 		this.minATK = minATK;
 		this.maxATK = maxATK;
-		this.maxHp = 100;
-		this.hp = 100;
+		this.maxHp = maxHp;
+		this.hp = maxHp;
 		this.color = color;
 	}
 }
@@ -13,6 +13,7 @@ class OC {
 // Personajes //
 let default1 = new OC("Nombre OC", "noOC", 1, 10, 100, "var(--yo)");
 let default2 = new OC("Nombre OC", "noOC2", 1, 10, 100, "var(--enemigo)");
+let akiko = new OC("Akiko", "akiko", 7, 15, 120, "#d9ee1d"); // Lobita inmortal
 let adam = new OC("Adam", "adam", 9, 28, 100, "#e99221"); // Mi detective traumado
 let hasani = new OC("Hasani", "hasani", 5, 21, 100, "#296ed6"); // Mago tritón traumado con DID
 let kizumi = new OC("Kizumi", "kizumi", 6, 23, 100, "#e699b9"); // Sirena que se está reincorporando a la vida normal en el océano
@@ -20,7 +21,7 @@ let melissa = new OC("Melissa", "melissa", 10, 21, 100, "#5d2eb6"); // Asistente
 let varoun = new OC("Varoun", "varoun", 9, 23, 100, "#1f461c"); // Hermano malo del rey del océano
 let zaire = new OC("Zaire", "zaire", 8, 26, 100, "#70c0b5"); // Rey del océano que es mestizo de dos especies del océano y básicamente deja que Hasani y Kizumi vivan en el castillo con él
 
-let personajes = [adam, hasani, kizumi, melissa, varoun, zaire];
+let personajes = [akiko, adam, hasani, kizumi, melissa, varoun, zaire];
 
 // Variables
 let ini = document.querySelector("#butIn");
@@ -137,14 +138,14 @@ ini.addEventListener('click', () => {
 		ini.disabled = true;
 		p1S.disabled = true;
 		oc1S.disabled = true;
-		hpC1.innerHTML = p1Char.hp + "/100"
+		hpC1.innerHTML = p1Char.hp + "/" + p1Char.maxHp;
 		hpY.style.width = "var(--cienM)";
 		hpY.style.backgroundColor = "var(--cien)";
 		hpE.style.width = "var(--cienM)";
 		hpE.style.backgroundColor = "var(--cien)";
 		p2S.disabled = true;
 		oc2S.disabled = true;
-		hpC2.innerHTML = p2Char.hp + "/100"
+		hpC2.innerHTML = p2Char.hp + "/" + p2Char.maxHp;
 		console.log("Iniciando juego");
 		gameMode = true;
 		if(gameMode){
