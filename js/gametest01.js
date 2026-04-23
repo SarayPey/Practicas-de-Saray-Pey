@@ -13,11 +13,11 @@ class OC {
 // Personajes //
 let default1 = new OC("Nombre OC", "noOC", 1, 10, 100, "var(--yo)");
 let default2 = new OC("Nombre OC", "noOC2", 1, 10, 100, "var(--enemigo)");
-let akiko = new OC("Akiko", "akiko", 7, 15, 120, "#d9ee1d"); // Lobita inmortal
+let akiko = new OC("Akiko", "akiko", 8, 18, 124, "#fcef40"); // Lobita inmortal
 let adam = new OC("Adam", "adam", 9, 28, 100, "#e99221"); // Mi detective traumado
-let hasani = new OC("Hasani", "hasani", 5, 21, 100, "#296ed6"); // Mago tritón traumado con DID
-let kizumi = new OC("Kizumi", "kizumi", 6, 23, 100, "#e699b9"); // Sirena que se está reincorporando a la vida normal en el océano
-let melissa = new OC("Melissa", "melissa", 10, 21, 100, "#5d2eb6"); // Asistente del traumado
+let hasani = new OC("Hasani", "hasani", 7, 22, 100, "#296ed6"); // Mago tritón traumado con DID
+let kizumi = new OC("Kizumi", "kizumi", 6, 21, 100, "#e699b9"); // Sirena que se está reincorporando a la vida normal en el océano
+let melissa = new OC("Melissa", "melissa", 10, 23, 100, "#5d2eb6"); // Asistente del traumado
 let varoun = new OC("Varoun", "varoun", 9, 23, 100, "#1f461c"); // Hermano malo del rey del océano
 let zaire = new OC("Zaire", "zaire", 8, 26, 100, "#70c0b5"); // Rey del océano que es mestizo de dos especies del océano y básicamente deja que Hasani y Kizumi vivan en el castillo con él
 
@@ -44,29 +44,29 @@ let kM = document.querySelector(".hab.p2.ci");
 
 let nom1 = document.querySelector("#name1")
 let hpY = document.querySelector(".pro.u");
-hpY.disabled = true;
 let p1 = document.querySelector(".personaje.uno");
-let p1Char = default1;
 let p1S = document.querySelector("#pj1Se");
 let oc1S = document.querySelector(".selector.yo");
 let habi1 = document.querySelectorAll(".hab.p1");
 let hpC1 = document.querySelector(".nHpOc.u")
+hpY.disabled = true;
+let p1Char = default1;
 
 let nom2 = document.querySelector("#name2")
 let hpE = document.querySelector(".pro.d");
-hpE.disabled = true;
 let p2 = document.querySelector(".personaje.dos");
-let p2Char = default2;
 let p2S = document.querySelector("#pj2Se");
 let oc2S = document.querySelector(".selector.en");
 let habi2 = document.querySelectorAll(".hab.p2");
 let hpC2 = document.querySelector(".nHpOc.d")
+let p2Char = default2;
+hpE.disabled = true;
 
 p1S.addEventListener('click', () => {
 	oc1S.innerHTML = "";
 	for (const x of personajes) {
 		let pNew = document.createElement('p');
-		let valor = `${x.nombre}<br>Rango de atk: ${x.minATK}-${x.maxATK}<br>`;
+		let valor = `${x.nombre}<br>Rango de atk: ${x.minATK}-${x.maxATK} | HP: ${x.maxHp}<br>`;
 		pNew.innerHTML += valor;
 		oc1S.appendChild(pNew);
 		console.log(`${x.nombre} cargado exitosamente`);
@@ -95,7 +95,7 @@ p2S.addEventListener('click', () => {
 	//Aquí debe habilitar la muestra y selección de personajes
 	for (const x of personajes) {
 		let pNew = document.createElement('p');
-		let valor = `${x.nombre}<br>Rango de atk: ${x.minATK}-${x.maxATK}<br>`;
+		let valor = `${x.nombre}<br>Rango de atk: ${x.minATK}-${x.maxATK} | HP: ${x.maxHp}<br>`;
 		pNew.innerHTML += valor;
 		oc2S.appendChild(pNew);
 		console.log(`${x.nombre} cargado exitosamente`);
@@ -123,10 +123,10 @@ if (!gameMode){
 	ini.disabled = false;
 	p1S.disabled = false;
 	oc1S.disabled = false;
-	p1Char.hp = 100;
+	p1Char.hp = p1Char.maxHp;
 	p2S.disabled = false;
 	oc2S.disabled = false;
-	p2Char.hp = 100
+	p2Char.hp = p1Char.maxHp;
 }
 
 ini.addEventListener('click', () => {
@@ -158,9 +158,6 @@ let turnoActual = null;
 let objetivo = null;
 
 function basicG(){
-	if(!gameMode){
-		return;
-	}
 	let atk = Math.floor(Math.random() * (turnoActual.maxATK - turnoActual.minATK + 1)) + turnoActual.minATK;
 	objetivo.hp -= atk;
 	if(objetivo.hp < 0){
@@ -229,7 +226,7 @@ function game(){
 
 function lifeUpdate(){
 	if(objetivo === p1Char){
-		hpC1.innerHTML = p1Char.hp + "/100"
+		hpC1.innerHTML = p1Char.hp + "/" + p1Char.maxHp;
 		hpY.style.width = p1Char.hp * 2 + "px"
 		if (p1Char.hp > 75){
 			hpY.style.backgroundColor = "#00ff00";
@@ -247,7 +244,7 @@ function lifeUpdate(){
 			hpY.style.backgroundColor = "#ff0000"
 		}
 	} else {
-		hpC2.innerHTML = p2Char.hp + "/100"
+		hpC2.innerHTML = p2Char.hp + "/" + p2Char.maxHp;
 		hpE.style.width = p2Char.hp * 2 + "px"
 		if (p2Char.hp > 75){
 			hpE.style.backgroundColor = "#00ff00";
@@ -276,10 +273,10 @@ function winCheck(){
 		ini.disabled = false;
 		p1S.disabled = false;
 		oc1S.disabled = false;
-		p1Char.hp = 100;
+		p1Char.hp = p1Char.maxHp;
 		p2S.disabled = false;
 		oc2S.disabled = false;
-		p2Char.hp = 100
+		p2Char.hp = p2Char.maxHp;
 	} else if (p2Char.hp <= 0){
 		p2Char.hp = 0;
 		msg(`¡${p1Char.nombre} ha ganado!`);
@@ -288,10 +285,10 @@ function winCheck(){
 		ini.disabled = false;
 		p1S.disabled = false;
 		oc1S.disabled = false;
-		p1Char.hp = 100;
+		p1Char.hp = p1Char.maxHp;
 		p2S.disabled = false;
 		oc2S.disabled = false;
-		p2Char.hp = 100
+		p2Char.hp = p2Char.maxHp;
 	} else {
 		return;
 	}
@@ -299,48 +296,69 @@ function winCheck(){
 }
   
 document.addEventListener('keydown', (ev) => {
-		console.log(ev.key);
-		if(!gameMode){
-			return;
-		}
-		if(ev.key === ' '){
-			console.log("Ataque normal");
-			basicG()
-		}
+	console.log(ev.key);
+	if(!gameMode){
+		return;
+	}
+	if(ev.key === ' '){
+		console.log("Ataque normal");
+	if(!gameMode){
+		return;
+	}
+		basicG()
+	}
 
-		// if (turnoActual === p1Char && ev.key === 'a'){
-		// 	return turnoActual.hab1;
-		// }
-		// if (turnoActual === p1Char && ev.key === 'w'){
-		// 	return turnoActual.hab1;
-		// }
-		// if (turnoActual === p1Char && ev.key === 's'){
-		// 	return turnoActual.hab1;
-		// }
-		// if (turnoActual === p1Char && ev.key === 'a'){
-		// 	return turnoActual.hab1;
-		// }
-		// if (turnoActual === p1Char && ev.key === 'c'){
-		// 	return turnoActual.hab1;
-		// }
+	// if (turnoActual === p1Char && ev.key === 'a'){
+	// if(!gameMode){
+	// 	return;
+	// }
+	// 	return turnoActual.hab1;
+	// }
+	// if (turnoActual === p1Char && ev.key === 'w'){
+	// if(!gameMode){
+	// 	return;
+	// }
+	// 	return turnoActual.hab2;
+	// }
+	// if (turnoActual === p1Char && ev.key === 's'){
+	// if(!gameMode){
+	// 	return;
+	// }
+	// 	return turnoActual.hab3;
+	// }
+	// if (turnoActual === p1Char && ev.key === 'a'){
+	// if(!gameMode){
+	// 	return;
+	// }
+	// 	return turnoActual.hab4;
+	// }
+	// if (turnoActual === p1Char && ev.key === 'c'){
+	// if(!gameMode){
+	// 	return;
+	// }
+	// 	return turnoActual.hab5;
+	// }
 
-		// if (turnoActual === p2Char && ev.key === 'n'){
-		// 	return turnoActual.hab1;
-		// }
-		// if (turnoActual === p2Char && ev.key === 'j'){
-		// 	return turnoActual.hab1;
-		// }
-		// if (turnoActual === p2Char && ev.key === 'o'){
-		// 	return turnoActual.hab1;
-		// }
-		// if (turnoActual === p2Char && ev.key === 'i'){
-		// 	return turnoActual.hab1;
-		// }
-		// if (turnoActual === p2Char && ev.key === 'm'){
-		// 	return turnoActual.hab1;
-		// }
+	// if (turnoActual === p2Char && ev.key === 'n'){
+	// 	return turnoActual.hab1;
+	// }
+	// if (turnoActual === p2Char && ev.key === 'j'){
+	// 	return turnoActual.hab2;
+	// }
+	// if (turnoActual === p2Char && ev.key === 'o'){
+	// 	return turnoActual.hab3;
+	// }
+	// if (turnoActual === p2Char && ev.key === 'i'){
+	// 	return turnoActual.hab4;
+	// }
+	// if (turnoActual === p2Char && ev.key === 'm'){
+	// 	return turnoActual.hab5;
+	// }
 })
 
 nA.addEventListener('click', () => {
-		basicG()
+	if(!gameMode){
+		return;
+	}
+	basicG()
 })
