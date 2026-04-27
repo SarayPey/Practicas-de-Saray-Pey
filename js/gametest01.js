@@ -1,11 +1,14 @@
-class habilidades {
-	constructor(nombre){
-		this.nombre = nombre;
+class Habilidades {
+	constructor(nombreH, desc, cd, code){
+		this.nombreH = nombreH;
+		this.desc = desc;
+		this.cd = cd;
+		this.code = code;
 	}
 }
 
 class OC {
-	constructor(nombre, varName, minATK, maxATK, maxHp, color){
+	constructor(nombre, varName, minATK, maxATK, maxHp, color, hab1, hab2, hab3, hab4, hab5){
 		this.nombre = nombre;
 		this.varName = varName;
 		this.minATK = minATK;
@@ -13,11 +16,25 @@ class OC {
 		this.maxHp = maxHp;
 		this.hp = maxHp;
 		this.color = color;
+		this.hab1 = hab1;
+		this.hab2 = hab2;
+		this.hab3 = hab3;
+		this.hab4 = hab4;
+		this.hab5 = hab5;
 	}
 };
 
+// Habilidades
+
+// Akiko
+let akikohab1 =  new Habilidades("Sanaciógit adn de la flor mágica", "Al usar esta habilidad, Akiko se cura a sí misma con el 20% de su vida", 5,	akiko.hp = akiko.hp + (akiko.maxHp*0.2));
+let akikohab2 =  new Habilidades("nombre", "desc", 1, console.log("."));
+let akikohab3 =  new Habilidades("nombre", "desc", 1, console.log("."));
+let akikohab4 =  new Habilidades("nombre", "desc", 1, console.log("."));
+let akikohab5 =  new Habilidades("nombre", "desc", 1, console.log("."));
+
 // Personajes //
-let akiko     = new OC("Akiko", "akiko", 7, 17, 124, "#fcef40");      // Lobita inmortal
+let akiko     = new OC("Akiko", "akiko", 7, 17, 124, "#fcef40", akikohab1, akikohab2, akikohab3, akikohab4, akikohab5);      // Lobita inmortal
 let adam      = new OC("Adam", "adam", 9, 28, 105, "#e99221");        // Mi detective traumado
 let hasani    = new OC("Hasani", "hasani", 7, 22, 100, "#296ed6");    // Mago tritón traumado con DID
 let jacob     = new OC("Jacob", "jacob", 12, 27, 94, "#630d0d");      // Terrícola torturado
@@ -77,6 +94,7 @@ let music = document.querySelector("#mOoO");
 let lib = document.querySelector("#muS");
 let song = document.querySelector("#mus");
 let sCho = document.querySelector("#sS");
+console.log(`Reproduciendo ${song.textContent}`);
 
 music.addEventListener('click', () => {
 	if(music.textContent === "music_note"){
