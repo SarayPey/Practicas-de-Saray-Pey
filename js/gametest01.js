@@ -29,9 +29,9 @@ let default2 = new OC("Nombre OC", "noOC2", 1, 10, 100, "var(--enemigo)");
 let personajes = [akiko, adam, hasani, jacob, kizumi, melissa, varoun, yun, zaire, zelie];
 
 // Variables
+let gameMode = false;
 let ini = document.querySelector("#butIn");
 let messageLog = document.querySelector("#log");
-let gameMode = false;
 
 let nA = document.querySelector(".hab.p12"); // Botón de espacio para celulares, es un gradiente entre el color del jugador 1 y del jugador 2
 
@@ -66,6 +66,61 @@ let habi2 = document.querySelectorAll(".hab.p2");
 let hpC2 = document.querySelector(".nHpOc.d");
 let p2Char = default2;
 hpE.disabled = true;
+
+let music = document.querySelector("#mOoO");
+let lib = document.querySelector("#muS");
+let song = document.querySelector("#mus");
+let sCho = document.querySelector("#sS");
+
+music.addEventListener('click', () => {
+	if(music.textContent === "music_note"){
+		music.textContent = "music_off";
+		song.pause();
+		console.log(`Pausando ${song.textContent}`);
+	} else if (music.textContent === "music_off"){
+		music.textContent = "music_note";
+		song.currentTime = 0;
+		song.volume = 0.3;
+		song.play()
+		console.log(`Reproduciendo ${song.textContent}`);
+	}
+});
+
+lib.addEventListener('click', () => {
+	if(sCho.style.display === "none"){
+		sCho.style.display = "inline";
+	} else if (sCho.style.display === "inline"){
+		sCho.style.display = "none";
+	}
+})
+
+lib.addEventListener('change', (ev)=> {
+	if (ev.target.value ===  "dS"){
+		song.textContent = "001 - \"Digi-Shop\", Saray Pey";
+		song.src = "../media/001.DigiShop.mp3";
+		console.log(`Canción cambiada a ${song.textContent}`);
+	} else if (ev.target.value === "cAD"){
+		song.src = "../media/002.ClearAdventureDay.mp3";
+		song.textContent = "002 - \"Clear adventure day\", Saray Pey";
+		console.log(`Canción cambiada a ${song.textContent}`);
+	} else if (ev.target.value === "cDM"){
+		song.src = "../media/003.ChefDetectiveMantra.mp3";
+		song.textContent = "003 - \"Chef detective mantra\", Saray Pey";
+		console.log(`Canción cambiada a ${song.textContent}`);
+	} else if (ev.target.value === "f"){
+		song.src = "../media/004.FIGHT.mp3";
+		song.textContent = "004 - \"FIGHT\", Saray Pey";
+		console.log(`Canción cambiada a ${song.textContent}`);
+	} else if (ev.target.value === "s"){
+		song.src = "../media/005.Strings.mp3";
+		song.textContent = "005 - \"Strings\", Saray Pey";
+		console.log(`Canción cambiada a ${song.textContent}`);
+	} else if (ev.target.value === "gJ"){
+		song.src = "../media/006.greatJob.mp3";
+		song.textContent = "006 - \"Great job\", Saray Pey";
+		console.log(`Canción cambiada a ${song.textContent}`);
+	}
+})
 
 p1S.addEventListener('click', () => {
 	oc1S.innerHTML = "";
