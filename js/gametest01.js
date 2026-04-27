@@ -1,3 +1,9 @@
+class habilidades {
+	constructor(nombre){
+		this.nombre = nombre;
+	}
+}
+
 class OC {
 	constructor(nombre, varName, minATK, maxATK, maxHp, color){
 		this.nombre = nombre;
@@ -80,7 +86,7 @@ music.addEventListener('click', () => {
 	} else if (music.textContent === "music_off"){
 		music.textContent = "music_note";
 		song.currentTime = 0;
-		song.volume = 0.3;
+		song.volume = 0.2;
 		song.play()
 		console.log(`Reproduciendo ${song.textContent}`);
 	}
@@ -94,32 +100,31 @@ lib.addEventListener('click', () => {
 	}
 })
 
-lib.addEventListener('change', (ev)=> {
+sCho.addEventListener('change', (ev)=> {
 	if (ev.target.value ===  "dS"){
+		song.src = "../audio/001.DigiShop.mp3";
 		song.textContent = "001 - \"Digi-Shop\", Saray Pey";
-		song.src = "../media/001.DigiShop.mp3";
-		console.log(`Canción cambiada a ${song.textContent}`);
-	} else if (ev.target.value === "cAD"){
-		song.src = "../media/002.ClearAdventureDay.mp3";
+	} else if(ev.target.value === "cAD"){
+		song.src = "../audio/002.ClearAdventureDay.mp3";
 		song.textContent = "002 - \"Clear adventure day\", Saray Pey";
-		console.log(`Canción cambiada a ${song.textContent}`);
 	} else if (ev.target.value === "cDM"){
-		song.src = "../media/003.ChefDetectiveMantra.mp3";
+		song.src = "../audio/003.ChefDetectiveMantra.mp3";
 		song.textContent = "003 - \"Chef detective mantra\", Saray Pey";
-		console.log(`Canción cambiada a ${song.textContent}`);
 	} else if (ev.target.value === "f"){
-		song.src = "../media/004.FIGHT.mp3";
+		song.src = "../audio/004.FIGHT.mp3";
 		song.textContent = "004 - \"FIGHT\", Saray Pey";
-		console.log(`Canción cambiada a ${song.textContent}`);
 	} else if (ev.target.value === "s"){
-		song.src = "../media/005.Strings.mp3";
+		song.src = "../audio/005.Strings.mp3";
 		song.textContent = "005 - \"Strings\", Saray Pey";
-		console.log(`Canción cambiada a ${song.textContent}`);
 	} else if (ev.target.value === "gJ"){
-		song.src = "../media/006.greatJob.mp3";
+		song.src = "../audio/006.GreatJob.mp3";
 		song.textContent = "006 - \"Great job\", Saray Pey";
-		console.log(`Canción cambiada a ${song.textContent}`);
 	}
+	song.volume = 0.2;
+	song.currentTime = 0;
+	song.play();
+	console.log(`Canción cambiada.`);
+	console.log(`Reproduciendo ${song.textContent}`);
 })
 
 p1S.addEventListener('click', () => {
@@ -209,6 +214,13 @@ ini.addEventListener('click', () => {
 		console.log("Iniciando juego");
 		gameMode = true;
 		if(gameMode){
+			console.log(`Canción cambiada.`);
+			song.pause();
+			song.src = "../audio/004.FIGHT.mp3";
+			song.textContent = "004 - \"FIGHT\", Saray Pey";
+			song.currentTime = 0;
+			song.play();
+		console.log(`Reproduciendo ${song.textContent}`);
 			game();
 		}
 	}
