@@ -3,3 +3,16 @@
 * {
     font-family:  sans-serif;
 }
+
+table, table tr th, tr td {
+    border: 1px solid;
+    border-collapse: collapse;
+}
+
+table tr td, th {
+    padding: 5px;
+}
+
+table {
+    border-width: 2px;
+}

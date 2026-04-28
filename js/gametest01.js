@@ -3,12 +3,13 @@ class Habilidades {
 		this.nombreH = nombreH;
 		this.desc = desc;
 		this.cd = cd;
+		this.currentCd = 0;
 		this.code = code;
 	}
 }
 
 class OC {
-	constructor(nombre, varName, minATK, maxATK, maxHp, color, hab1, hab2, hab3, hab4, hab5){
+	constructor(nombre, varName, minATK, maxATK, maxHp, color, habs){
 		this.nombre = nombre;
 		this.varName = varName;
 		this.minATK = minATK;
@@ -16,38 +17,44 @@ class OC {
 		this.maxHp = maxHp;
 		this.hp = maxHp;
 		this.color = color;
-		this.hab1 = hab1;
-		this.hab2 = hab2;
-		this.hab3 = hab3;
-		this.hab4 = hab4;
-		this.hab5 = hab5;
+		this.habs = habs;
 	}
 };
 
 // Habilidades
 
 // Akiko
-let akikohab1 =  new Habilidades("Sanaciógit adn de la flor mágica", "Al usar esta habilidad, Akiko se cura a sí misma con el 20% de su vida", 5,	akiko.hp = akiko.hp + (akiko.maxHp*0.2));
-let akikohab2 =  new Habilidades("nombre", "desc", 1, console.log("."));
-let akikohab3 =  new Habilidades("nombre", "desc", 1, console.log("."));
-let akikohab4 =  new Habilidades("nombre", "desc", 1, console.log("."));
-let akikohab5 =  new Habilidades("nombre", "desc", 1, console.log("."));
+let akikohab1 =  new Habilidades("Sanación de de la flor mágica", "Al usar esta habilidad, Akiko se cura a sí misma con el 20% de su vida", 3, (caster, target) => {
+	caster.hp = caster.hp + Math.floor(caster.maxHp * 0.2);
+}
+);
+let akikohab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let akikohab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let akikohab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let akikohab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+
+// Adam
+let adamhab1 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let adamhab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let adamhab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let adamhab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let adamhab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 
 // Personajes //
-let akiko     = new OC("Akiko", "akiko", 7, 17, 124, "#fcef40", akikohab1, akikohab2, akikohab3, akikohab4, akikohab5);      // Lobita inmortal
-let adam      = new OC("Adam", "adam", 9, 28, 105, "#e99221");        // Mi detective traumado
-let hasani    = new OC("Hasani", "hasani", 7, 22, 100, "#296ed6");    // Mago tritón traumado con DID
-let jacob     = new OC("Jacob", "jacob", 12, 27, 94, "#630d0d");      // Terrícola torturado
-let kizumi    = new OC("Kizumi", "kizumi", 6, 24, 100, "#e699b9");    // Sirena que se está reincorporando a la vida normal en el océano
-let melissa   = new OC("Melissa", "melissa", 10, 23, 100, "#5d2eb6"); // Asistente del traumado
-let varoun    = new OC("Varoun", "varoun", 9, 23, 100, "#1f461c");    // Hermano malo del rey del océano
-let yun       = new OC("Yun", "yun", 9, 23, 100, "#2a81bb");          // El que garantiza que Zelie no haga algo malo
-let zaire     = new OC("Zaire", "zaire", 10, 28, 100, "#70c0b5");     // Rey del océano mestizo de dos especies del océano y que deja que Hasani y Kizumi vivan con él
-let zelie     = new OC("Zelie", "zelie", 12, 26, 95, "#d65797");      // No sé qué decir de ella-
+let akiko     = new OC("Akiko", "akiko", 7, 17, 124, "#fcef40", [akikohab1, akikohab2, akikohab3, akikohab4, akikohab5]);      // Lobita inmortal
+let adam      = new OC("Adam", "adam", 9, 28, 105, "#e99221", [adamhab1, adamhab2, adamhab3, adamhab4, adamhab5]);        // Mi detective traumado
+let hasani    = new OC("Hasani", "hasani", 7, 22, 100, "#296ed6", []);    // Mago tritón traumado con DID
+let jacob     = new OC("Jacob", "jacob", 12, 27, 94, "#630d0d", []);      // Terrícola torturado
+let kizumi    = new OC("Kizumi", "kizumi", 6, 24, 100, "#e699b9", []);    // Sirena que se está reincorporando a la vida normal en el océano
+let melissa   = new OC("Melissa", "melissa", 10, 23, 100, "#5d2eb6", []); // Asistente del traumado
+let varoun    = new OC("Varoun", "varoun", 9, 23, 100, "#1f461c", []);    // Hermano malo del rey del océano
+let yun       = new OC("Yun", "yun", 9, 23, 100, "#2a81bb", []);          // El que garantiza que Zelie no haga algo malo
+let zaire     = new OC("Zaire", "zaire", 10, 28, 100, "#70c0b5", []);     // Rey del océano mestizo de dos especies del océano y que deja que Hasani y Kizumi vivan con él
+let zelie     = new OC("Zelie", "zelie", 12, 26, 95, "#d65797", []);      // No sé qué decir de ella-
 
 // Defecto para el jugador
-let default1 = new OC("Nombre OC", "noOC", 1, 10, 100, "var(--yo)");
-let default2 = new OC("Nombre OC", "noOC2", 1, 10, 100, "var(--enemigo)");
+let default1 = new OC("Nombre OC", "noOC", 1, 10, 100, "var(--yo)", []);
+let default2 = new OC("Nombre OC", "noOC2", 1, 10, 100, "var(--enemigo)", []);
 
 let personajes = [akiko, adam, hasani, jacob, kizumi, melissa, varoun, yun, zaire, zelie];
 
@@ -247,6 +254,23 @@ ini.addEventListener('click', () => {
 let turnoActual = null;
 let objetivo = null;
 
+function turnoChange(){
+		if(!gameMode){
+			return;
+		}
+	if(turnoActual === p1Char){
+		turnoActual = p2Char;
+		objetivo = p1Char;
+		msg(`¡Es turno del jugador 2 (${turnoActual.nombre})!`);
+		msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
+	} else {
+		turnoActual = p1Char;
+		objetivo = p2Char;
+		msg(`¡Es turno del jugador 1 (${turnoActual.nombre})!`);
+		msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
+	}
+}
+
 function basicG(){
 	let atk = Math.floor(Math.random() * (turnoActual.maxATK - turnoActual.minATK + 1)) + turnoActual.minATK;
 	objetivo.hp -= atk;
@@ -269,20 +293,7 @@ function basicG(){
 	lifeUpdate();
 	msg("--HA TERMINADO EL TURNO");
 	winCheck();
-	if(!gameMode){
-		return;
-	}
-	if(turnoActual === p1Char){
-		turnoActual = p2Char;
-		objetivo = p1Char;
-		msg(`¡Es turno del jugador 2 (${turnoActual.nombre})!`);
-		msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
-	} else {
-		turnoActual = p1Char;
-		objetivo = p2Char;
-		msg(`¡Es turno del jugador 1 (${turnoActual.nombre})!`);
-		msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
-	}
+	turnoChange();
 };
 
 function msg(mensaje){
@@ -315,7 +326,6 @@ function game(){
 };
 
 function lifeUpdate(){
-	if(objetivo === p1Char){
 		hpC1.innerHTML = p1Char.hp + "/" + p1Char.maxHp;
 		hpY.style.width = p1Char.hp * 2 + "px"
 		if (p1Char.hp > 75){
@@ -333,7 +343,7 @@ function lifeUpdate(){
 		} else if(p1Char.hp <= 0){
 			hpY.style.backgroundColor = "#ff0000"
 		}
-	} else {
+
 		hpC2.innerHTML = p2Char.hp + "/" + p2Char.maxHp;
 		hpE.style.width = p2Char.hp * 2 + "px"
 		if (p2Char.hp > 75){
@@ -351,7 +361,6 @@ function lifeUpdate(){
 		} else if(p2Char.hp <= 0){
 			hpE.style.backgroundColor = "#ff0000"
 		}
-	}
 };
 
 function winCheck(){
@@ -390,7 +399,7 @@ document.addEventListener('keydown', (ev) => {
 	if(!gameMode){
 		return;
 	}
-	if(ev.key === ' '){
+	if(ev.key === ' ' || ev.key === 'W'){
 		console.log("Ataque normal");
 	if(!gameMode){
 		return;
@@ -398,72 +407,118 @@ document.addEventListener('keydown', (ev) => {
 		basicG();
 	}
 
-	// if (turnoActual === p1Char && ev.key === 'a'){
-	// if(!gameMode){
-	// 	return;
-	// }
-	// 	return turnoActual.hab1;
-	// }
-	// if (turnoActual === p1Char && ev.key === 'w'){
-	// if(!gameMode){
-	// 	return;
-	// }
-	// 	return turnoActual.hab2;
-	// }
-	// if (turnoActual === p1Char && ev.key === 's'){
-	// if(!gameMode){
-	// 	return;
-	// }
-	// 	return turnoActual.hab3;
-	// }
-	// if (turnoActual === p1Char && ev.key === 'a'){
-	// if(!gameMode){
-	// 	return;
-	// }
-	// 	return turnoActual.hab4;
-	// }
-	// if (turnoActual === p1Char && ev.key === 'c'){
-	// if(!gameMode){
-	// 	return;
-	// }
-	// 	return turnoActual.hab5;
-	// }
+	if (turnoActual === p1Char && ev.key === 'w' || ev.key === 'W'){
+		if(!gameMode){
+			return;
+		}
+		console.log("ACTIVADO")
+		turnoActual.habs[0].code(turnoActual, objetivo);
+		lifeUpdate();
+		console.log("Funcionó.")
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
+		turnoChange();
+	}
+	if (turnoActual === p1Char && ev.key === 'a' || ev.key === 'A'){
+		if(!gameMode){
+			return;
+		}
+		console.log("ACTIVADO")
+		turnoActual.habs[1].code(turnoActual, objetivo);
+		lifeUpdate();
+		console.log("Funcionó.")
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
+		turnoChange();
+	}
+	if (turnoActual === p1Char && ev.key === 's' || ev.key === 'S'){
+		if(!gameMode){
+			return;
+		}
+		console.log("ACTIVADO")
+		turnoActual.habs[2].code(turnoActual, objetivo);
+		lifeUpdate();
+		console.log("Funcionó.")
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
+		turnoChange();
+	}
+	if (turnoActual === p1Char && ev.key === 'd' || ev.key === 'D'){
+		if(!gameMode){
+			return;
+		}
+		console.log("ACTIVADO")
+		turnoActual.habs[3].code(turnoActual, objetivo);
+		lifeUpdate();
+		console.log("Funcionó.")
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
+		turnoChange();
+	}
+	if (turnoActual === p1Char && ev.key === 'c' || ev.key === 'W'){
+		if(!gameMode){
+			return;
+		}
+		console.log("ACTIVADO")
+		turnoActual.habs[4].code(turnoActual, objetivo);
+		lifeUpdate();
+		console.log("Funcionó.")
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
+		turnoChange();
+	}
 
-	// if (turnoActual === p2Char && ev.key === 'n'){
-	// if(!gameMode){
-	// 	return;
-	// }
-	// 	return turnoActual.hab1;
-	// }
-	// if (turnoActual === p2Char && ev.key === 'j'){
-	// if(!gameMode){
-	// 	return;
-	// }
-	// 	return turnoActual.hab2;
-	// }
-	// if (turnoActual === p2Char && ev.key === 'o'){
-	// if(!gameMode){
-	// 	return;
-	// }
-	// 	return turnoActual.hab3;
-	// }
-	// if (turnoActual === p2Char && ev.key === 'i'){
-	// if(!gameMode){
-	// 	return;
-	// }
-	// 	return turnoActual.hab4;
-	// }
-	// if (turnoActual === p2Char && ev.key === 'm'){
-	// if(!gameMode){
-	// 	return;
-	// }
-	// 	return turnoActual.hab5;
-	// }
+	if (turnoActual === p2Char && ev.key === 'n' || ev.key === 'W'){
+		if(!gameMode){
+			return;
+		}
+		console.log("ACTIVADO")
+		turnoActual.habs[0].code(turnoActual, objetivo);
+		lifeUpdate();
+		console.log("Funcionó.")
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
+		turnoChange();
+	}
+	if (turnoActual === p2Char && ev.key === 'j' || ev.key === 'W'){
+		if(!gameMode){
+			return;
+		}
+		console.log("ACTIVADO")
+		turnoActual.habs[1].code(turnoActual, objetivo);
+		console.log("Funcionó.")
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
+		turnoChange();
+	}
+	if (turnoActual === p2Char && ev.key === 'o' || ev.key === 'W'){
+		if(!gameMode){
+			return;
+		}
+		console.log("ACTIVADO")
+		turnoActual.habs[2].code(turnoActual, objetivo);
+		console.log("Funcionó.")
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
+		turnoChange();
+	}
+	if (turnoActual === p2Char && ev.key === 'i' || ev.key === 'W'){
+		if(!gameMode){
+			return;
+		}
+		console.log("ACTIVADO")
+		turnoActual.habs[3].code(turnoActual, objetivo);
+		console.log("Funcionó.")
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
+		turnoChange();
+	}
+	if (turnoActual === p2Char && ev.key === 'm' || ev.key === 'W'){
+		if(!gameMode){
+			return;
+		}
+		console.log("ACTIVADO")
+		turnoActual.habs[4].code(turnoActual, objetivo);
+		console.log("Funcionó.")
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
+		turnoChange();
+	}
 });
 
 nA.addEventListener('click', () => {
-	if(!gameMode){
-		return;
-	}
+		if(!gameMode){
+			return;
+		}
 	basicG();
 });
