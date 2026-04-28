@@ -1,4 +1,4 @@
-import {akikohab1, akikohab3, akikohab3, akikohab4, akikohab5, adamhab1, adamhab3, adamhab3, adamhab4, adamhab5} from 'habs.js'
+import {akikohab1, akikohab2, akikohab3, akikohab4, akikohab5, adamhab1, adamhab2, adamhab3, adamhab4, adamhab5} from './habs.js'
 
 class OC {
 	constructor(nombre, varName, minATK, maxATK, maxHp, color, habs){

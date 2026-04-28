@@ -14,12 +14,6 @@ let akikohab1 =  new Habilidades("Sanación de de la flor mágica", "Al usar est
 	if (caster.hp > caster.maxHp){
 		caster.hp = caster.maxHp;
 	}
-	let oc = (caster === p1Char) ? p1 : p2;
-	oc.animate(
-  [{transform: "scale(1) translateY(0px)", backgroundColor: "#b7ff75"},
-    {transform: "scale(1.15) translateY(-5px)", backgroundColor: caster.color},
-    {transform: "scale(1) translateY(0px)"}
-  ],{duration: 500});
 });
 let akikohab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 let akikohab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
@@ -33,4 +27,4 @@ let adamhab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 let adamhab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 let adamhab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 
-export {akikohab1, akikohab2, akikohab3, akikohab4, akikohab5, adamhab1, adamhab2, adamhab3, adamhab4, adamhab5}
+export {Habilidades, akikohab1, akikohab2, akikohab3, akikohab4, akikohab5, adamhab1, adamhab2, adamhab3, adamhab4, adamhab5}

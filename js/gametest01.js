@@ -1,4 +1,4 @@
-import {akiko, adam, hasani, jacob, kizumi, melissa, varoun, yun, zaire, zelie} from 'ocs.js'
+import {akiko, adam, hasani, jacob, kizumi, melissa, varoun, yun, zaire, zelie, default1, default2} from './ocs.js'
 let personajes = [akiko, adam, hasani, jacob, kizumi, melissa, varoun, yun, zaire, zelie];
 
 // Variables
@@ -99,24 +99,21 @@ p1S.addEventListener('click', () => {
 	oc1S.innerHTML = "";
 	for (const x of personajes) {
 		let pNew = document.createElement('p');
-		let valor = `${x.nombre}<br>Rango de atk: ${x.minATK}-${x.maxATK} | HP: ${x.maxHp}<br>`;
+		let valor = `${x.nombre}<br>Rango de atk: ${x.minATK}-${x.maxATK} | HP: ${x.maxHp}<br> `;
 		pNew.innerHTML += valor;
 		oc1S.appendChild(pNew);
-		console.log(`${x.nombre} cargado exitosamente`);
 		pNew.addEventListener('click', () => {
 				if (p2Char.varName === x.varName) {
 					alert("Personaje ocupado");
 				} else {
 					p1Char = x;
-					messageNOC = `<br>Jugador 1 planea jugar con ${x.nombre}`;
+					msg(`Jugador 1 planea jugar con ${x.nombre}`);
 					p1.style.backgroundColor = x.color;
 					nom1.innerHTML = x.nombre;
 					nA.style.backgroundImage = `linear-gradient(90deg, ${p1Char.color}, ${p2Char.color})`;
 					for (let hab of habi1) {
 						hab.style.backgroundColor = x.color;
 					}
-					messageLog.innerHTML += messageNOC;
-					messageLog.scrollTop = messageLog.scrollHeight;
 				}
 			}
 		)
@@ -131,21 +128,18 @@ p2S.addEventListener('click', () => {
 		let valor = `${x.nombre}<br>Rango de atk: ${x.minATK}-${x.maxATK} | HP: ${x.maxHp}<br>`;
 		pNew.innerHTML += valor;
 		oc2S.appendChild(pNew);
-		console.log(`${x.nombre} cargado exitosamente`);
 		pNew.addEventListener('click', () => {
 				if (p1Char.varName === x.varName) {
 					alert("Personaje ocupado");
 				} else {
 					p2Char = x;
-					messageNOC = `<br>Jugador 2 planea jugar con ${x.nombre}`;
+					msg(`Jugador 2 planea jugar con ${x.nombre}`);
 					p2.style.backgroundColor = x.color;
 					nom2.innerHTML = x.nombre;
 					nA.style.backgroundImage = `linear-gradient(90deg, ${p1Char.color}, ${p2Char.color})`;
 					for (let hab of habi2) {
 						hab.style.backgroundColor = x.color;
 					}
-					messageLog.innerHTML += messageNOC;
-					messageLog.scrollTop = messageLog.scrollHeight;
 				}
 			}
 		)
@@ -256,7 +250,7 @@ function game(){
 	hpE.disabled = false;
 	console.log(`Habilitando personaje 2: ${p2Char.nombre}`);
 	msg("Asignando primer turno…");
-	turnoIni = Math.floor(Math.random() * 2);
+	let turnoIni = Math.floor(Math.random() * 2);
 	console.log(turnoIni);
 	if(turnoIni === 1){
 		msg(`El primer turno es de Jugador 1 (${p1Char.nombre})`);
@@ -354,55 +348,45 @@ document.addEventListener('keydown', (ev) => {
 		if(!gameMode){
 			return;
 		}
-		console.log("ACTIVADO")
-		turnoActual.habs[0].code(turnoActual, objetivo);
+			turnoActual.habs[0].code(turnoActual, objetivo);
 		lifeUpdate();
-		console.log("Funcionó.")
-		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
+			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
 		turnoChange();
 	}
 	if (turnoActual === p1Char && ev.key === 'a' || ev.key === 'A'){
 		if(!gameMode){
 			return;
 		}
-		console.log("ACTIVADO")
-		turnoActual.habs[1].code(turnoActual, objetivo);
+			turnoActual.habs[1].code(turnoActual, objetivo);
 		lifeUpdate();
-		console.log("Funcionó.")
-		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
+			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
 		turnoChange();
 	}
 	if (turnoActual === p1Char && ev.key === 's' || ev.key === 'S'){
 		if(!gameMode){
 			return;
 		}
-		console.log("ACTIVADO")
-		turnoActual.habs[2].code(turnoActual, objetivo);
+			turnoActual.habs[2].code(turnoActual, objetivo);
 		lifeUpdate();
-		console.log("Funcionó.")
-		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
+			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
 		turnoChange();
 	}
 	if (turnoActual === p1Char && ev.key === 'd' || ev.key === 'D'){
 		if(!gameMode){
 			return;
 		}
-		console.log("ACTIVADO")
-		turnoActual.habs[3].code(turnoActual, objetivo);
+			turnoActual.habs[3].code(turnoActual, objetivo);
 		lifeUpdate();
-		console.log("Funcionó.")
-		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
+			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
 		turnoChange();
 	}
 	if (turnoActual === p1Char && ev.key === 'c' || ev.key === 'C'){
 		if(!gameMode){
 			return;
 		}
-		console.log("ACTIVADO")
-		turnoActual.habs[4].code(turnoActual, objetivo);
+			turnoActual.habs[4].code(turnoActual, objetivo);
 		lifeUpdate();
-		console.log("Funcionó.")
-		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
+			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
 		turnoChange();
 	}
 
@@ -410,55 +394,45 @@ document.addEventListener('keydown', (ev) => {
 		if(!gameMode){
 			return;
 		}
-		console.log("ACTIVADO")
-		turnoActual.habs[0].code(turnoActual, objetivo);
+			turnoActual.habs[0].code(turnoActual, objetivo);
 		lifeUpdate();
-		console.log("Funcionó.")
-		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
+			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
 		turnoChange();
 	}
 	if (turnoActual === p2Char && ev.key === 'j' || ev.key === 'J'){
 		if(!gameMode){
 			return;
 		}
-		console.log("ACTIVADO")
-		turnoActual.habs[1].code(turnoActual, objetivo);
+			turnoActual.habs[1].code(turnoActual, objetivo);
 		lifeUpdate();
-		console.log("Funcionó.")
-		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
+			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
 		turnoChange();
 	}
 	if (turnoActual === p2Char && ev.key === 'o' || ev.key === 'O'){
 		if(!gameMode){
 			return;
 		}
-		console.log("ACTIVADO")
-		turnoActual.habs[2].code(turnoActual, objetivo);
+			turnoActual.habs[2].code(turnoActual, objetivo);
 		lifeUpdate();
-		console.log("Funcionó.")
-		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
+			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
 		turnoChange();
 	}
 	if (turnoActual === p2Char && ev.key === 'i' || ev.key === 'I'){
 		if(!gameMode){
 			return;
 		}
-		console.log("ACTIVADO")
-		turnoActual.habs[3].code(turnoActual, objetivo);
+			turnoActual.habs[3].code(turnoActual, objetivo);
 		lifeUpdate();
-		console.log("Funcionó.")
-		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
+			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
 		turnoChange();
 	}
 	if (turnoActual === p2Char && ev.key === 'm' || ev.key === 'M'){
 		if(!gameMode){
 			return;
 		}
-		console.log("ACTIVADO")
-		turnoActual.habs[4].code(turnoActual, objetivo);
+			turnoActual.habs[4].code(turnoActual, objetivo);
 		lifeUpdate();
-		console.log("Funcionó.")
-		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
+			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
 		turnoChange();
 	}
 });
@@ -471,10 +445,8 @@ kW.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-	console.log("ACTIVADO")
 	turnoActual.habs[0].code(turnoActual, objetivo);
 	lifeUpdate();
-	console.log("Funcionó.")
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
 	turnoChange();
 });
@@ -482,10 +454,8 @@ kA.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-	console.log("ACTIVADO")
 	turnoActual.habs[1].code(turnoActual, objetivo);
 	lifeUpdate();
-	console.log("Funcionó.")
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
 	turnoChange();
 });
@@ -493,10 +463,8 @@ kS.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-	console.log("ACTIVADO")
 	turnoActual.habs[2].code(turnoActual, objetivo);
 	lifeUpdate();
-	console.log("Funcionó.")
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
 	turnoChange();
 });
@@ -504,10 +472,8 @@ kD.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-	console.log("ACTIVADO")
 	turnoActual.habs[3].code(turnoActual, objetivo);
 	lifeUpdate();
-	console.log("Funcionó.")
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
 	turnoChange();
 });
@@ -515,10 +481,8 @@ kC.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-	console.log("ACTIVADO")
 	turnoActual.habs[4].code(turnoActual, objetivo);
 	lifeUpdate();
-	console.log("Funcionó.")
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
 	turnoChange();
 });
@@ -527,10 +491,8 @@ kN.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-	console.log("ACTIVADO")
 	turnoActual.habs[0].code(turnoActual, objetivo);
 	lifeUpdate();
-	console.log("Funcionó.")
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
 	turnoChange();
 });
@@ -538,10 +500,8 @@ kJ.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-	console.log("ACTIVADO")
 	turnoActual.habs[1].code(turnoActual, objetivo);
 	lifeUpdate();
-	console.log("Funcionó.")
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
 	turnoChange();
 });
@@ -549,10 +509,8 @@ kO.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-	console.log("ACTIVADO")
 	turnoActual.habs[2].code(turnoActual, objetivo);
 	lifeUpdate();
-	console.log("Funcionó.")
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
 	turnoChange();
 });
@@ -560,10 +518,8 @@ kI.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-	console.log("ACTIVADO")
 	turnoActual.habs[3].code(turnoActual, objetivo);
 	lifeUpdate();
-	console.log("Funcionó.")
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
 	turnoChange();
 });
@@ -571,10 +527,8 @@ kM.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-	console.log("ACTIVADO")
 	turnoActual.habs[4].code(turnoActual, objetivo);
 	lifeUpdate();
-	console.log("Funcionó.")
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
 	turnoChange();
 });
