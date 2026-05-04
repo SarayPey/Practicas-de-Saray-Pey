@@ -1,4 +1,4 @@
-import {akikohab1, akikohab2, akikohab3, akikohab4, akikohab5, adamhab1, adamhab2, adamhab3, adamhab4, adamhab5} from './habs.js'
+import {akikohab1, akikohab2, akikohab3, akikohab4, akikohab5, adamhab1, adamhab2, adamhab3, adamhab4, adamhab5} from './habs.js';
 
 class OC {
 	constructor(nombre, varName, minATK, maxATK, maxHp, color, habs){
@@ -27,4 +27,4 @@ let zelie     = new OC("Zelie", "zelie", 12, 26, 95, "#d65797", []);      // No 
 let default1 = new OC("Nombre OC", "noOC", 1, 10, 100, "var(--yo)", []);
 let default2 = new OC("Nombre OC", "noOC2", 1, 10, 100, "var(--enemigo)", []);
 
-export {akiko, adam, hasani, jacob, kizumi, melissa, varoun, yun, zaire, zelie, default1, default2}
+export {akiko, adam, hasani, jacob, kizumi, melissa, varoun, yun, zaire, zelie, default1, default2};
