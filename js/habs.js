@@ -3,19 +3,17 @@ class Habilidades {
 		this.nombreH = nombreH;
 		this.desc = desc;
 		this.cd = cd;
-		this.active = false;
 		this.currentCd = 0;
 		this.code = code;
 	}
-}
+};
 
 // Akiko
 let akikohab1 =  new Habilidades("Sanación de de la flor mágica", "Al usar esta habilidad, Akiko se cura a sí misma con el 20% de su vida", 3, (caster, target) => {
-	this.active = true;
 	caster.hp = caster.hp + Math.floor(caster.maxHp * 0.2);
 	if (caster.hp > caster.maxHp){
 		caster.hp = caster.maxHp;
-	}
+	};
 });
 
 let akikohab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});

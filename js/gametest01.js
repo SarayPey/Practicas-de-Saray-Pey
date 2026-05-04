@@ -191,18 +191,6 @@ ini.addEventListener('click', () => {
 let turnoActual = null;
 let objetivo = null;
 
-function cdCheck(i){
-	let h = turnoActual.habs[i];
-	if(h.active === true){
-		h.currentCd = h.cd;
-		h.active = false;
-	} else {
-		if(h.currentCd > 0){
-			h.currentCd --;
-		}
-	}
-}
-
 function turnoChange(){
 		if(!gameMode){
 			return;
@@ -360,8 +348,7 @@ document.addEventListener('keydown', (ev) => {
 		if(!gameMode){
 			return;
 		}
-		cdCheck(0);
-		turnoActual.habs[0].code(turnoActual, objetivo);
+			turnoActual.habs[0].code(turnoActual, objetivo);
 		lifeUpdate();
 			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
 		turnoChange();
@@ -370,8 +357,7 @@ document.addEventListener('keydown', (ev) => {
 		if(!gameMode){
 			return;
 		}
-		cdCheck(1);
-		turnoActual.habs[1].code(turnoActual, objetivo);
+			turnoActual.habs[1].code(turnoActual, objetivo);
 		lifeUpdate();
 			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
 		turnoChange();
@@ -380,8 +366,7 @@ document.addEventListener('keydown', (ev) => {
 		if(!gameMode){
 			return;
 		}
-		cdCheck(2);
-		turnoActual.habs[2].code(turnoActual, objetivo);
+			turnoActual.habs[2].code(turnoActual, objetivo);
 		lifeUpdate();
 			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
 		turnoChange();
@@ -390,8 +375,7 @@ document.addEventListener('keydown', (ev) => {
 		if(!gameMode){
 			return;
 		}
-		cdCheck(3);
-		turnoActual.habs[3].code(turnoActual, objetivo);
+			turnoActual.habs[3].code(turnoActual, objetivo);
 		lifeUpdate();
 			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
 		turnoChange();
@@ -400,8 +384,7 @@ document.addEventListener('keydown', (ev) => {
 		if(!gameMode){
 			return;
 		}
-		cdCheck(4);
-		turnoActual.habs[4].code(turnoActual, objetivo);
+			turnoActual.habs[4].code(turnoActual, objetivo);
 		lifeUpdate();
 			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
 		turnoChange();
@@ -411,8 +394,7 @@ document.addEventListener('keydown', (ev) => {
 		if(!gameMode){
 			return;
 		}
-		cdCheck(0);
-		turnoActual.habs[0].code(turnoActual, objetivo);
+			turnoActual.habs[0].code(turnoActual, objetivo);
 		lifeUpdate();
 			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
 		turnoChange();
@@ -421,8 +403,7 @@ document.addEventListener('keydown', (ev) => {
 		if(!gameMode){
 			return;
 		}
-		cdCheck(1);
-		turnoActual.habs[1].code(turnoActual, objetivo);
+			turnoActual.habs[1].code(turnoActual, objetivo);
 		lifeUpdate();
 			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
 		turnoChange();
@@ -431,8 +412,7 @@ document.addEventListener('keydown', (ev) => {
 		if(!gameMode){
 			return;
 		}
-		cdCheck(2);
-		turnoActual.habs[2].code(turnoActual, objetivo);
+			turnoActual.habs[2].code(turnoActual, objetivo);
 		lifeUpdate();
 			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
 		turnoChange();
@@ -441,8 +421,7 @@ document.addEventListener('keydown', (ev) => {
 		if(!gameMode){
 			return;
 		}
-		cdCheck(3);
-		turnoActual.habs[3].code(turnoActual, objetivo);
+			turnoActual.habs[3].code(turnoActual, objetivo);
 		lifeUpdate();
 			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
 		turnoChange();
@@ -451,8 +430,7 @@ document.addEventListener('keydown', (ev) => {
 		if(!gameMode){
 			return;
 		}
-		cdCheck(4);
-		turnoActual.habs[4].code(turnoActual, objetivo);
+			turnoActual.habs[4].code(turnoActual, objetivo);
 		lifeUpdate();
 			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
 		turnoChange();
@@ -467,7 +445,6 @@ kW.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-cdCheck(0);
 	turnoActual.habs[0].code(turnoActual, objetivo);
 	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
@@ -477,7 +454,6 @@ kA.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-cdCheck(0);
 	turnoActual.habs[1].code(turnoActual, objetivo);
 	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
@@ -487,7 +463,6 @@ kS.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-cdCheck(0);
 	turnoActual.habs[2].code(turnoActual, objetivo);
 	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
@@ -497,7 +472,6 @@ kD.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-cdCheck(0);
 	turnoActual.habs[3].code(turnoActual, objetivo);
 	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
@@ -507,7 +481,6 @@ kC.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-cdCheck(0);
 	turnoActual.habs[4].code(turnoActual, objetivo);
 	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
@@ -518,7 +491,6 @@ kN.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-cdCheck(0);
 	turnoActual.habs[0].code(turnoActual, objetivo);
 	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
@@ -528,7 +500,6 @@ kJ.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-cdCheck(0);
 	turnoActual.habs[1].code(turnoActual, objetivo);
 	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
@@ -538,7 +509,6 @@ kO.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-cdCheck(0);
 	turnoActual.habs[2].code(turnoActual, objetivo);
 	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
@@ -548,7 +518,6 @@ kI.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-cdCheck(0);
 	turnoActual.habs[3].code(turnoActual, objetivo);
 	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
@@ -558,7 +527,6 @@ kM.addEventListener('click', () =>{
 	if(!gameMode){
 		return;
 	}
-cdCheck(0);
 	turnoActual.habs[4].code(turnoActual, objetivo);
 	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
