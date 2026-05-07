@@ -304,6 +304,7 @@ function lifeUpdate(){
 };
 
 function winCheck(){
+	lifeUpdate()
 	if (p1Char.hp <= 0){
 		p1Char.hp = 0;
 		msg(`¡${p2Char.nombre} ha ganado!`);
@@ -349,8 +350,8 @@ document.addEventListener('keydown', (ev) => {
 			return;
 		}
 			turnoActual.habs[0].code(turnoActual, objetivo);
-		lifeUpdate();
-			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
+		winCheck();
 		turnoChange();
 	}
 	if (turnoActual === p1Char && ev.key === 'a' || ev.key === 'A'){
@@ -358,8 +359,8 @@ document.addEventListener('keydown', (ev) => {
 			return;
 		}
 			turnoActual.habs[1].code(turnoActual, objetivo);
-		lifeUpdate();
-			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
+		winCheck();
 		turnoChange();
 	}
 	if (turnoActual === p1Char && ev.key === 's' || ev.key === 'S'){
@@ -367,8 +368,8 @@ document.addEventListener('keydown', (ev) => {
 			return;
 		}
 			turnoActual.habs[2].code(turnoActual, objetivo);
-		lifeUpdate();
-			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
+		winCheck();
 		turnoChange();
 	}
 	if (turnoActual === p1Char && ev.key === 'd' || ev.key === 'D'){
@@ -376,8 +377,8 @@ document.addEventListener('keydown', (ev) => {
 			return;
 		}
 			turnoActual.habs[3].code(turnoActual, objetivo);
-		lifeUpdate();
-			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
+		winCheck();
 		turnoChange();
 	}
 	if (turnoActual === p1Char && ev.key === 'c' || ev.key === 'C'){
@@ -385,8 +386,8 @@ document.addEventListener('keydown', (ev) => {
 			return;
 		}
 			turnoActual.habs[4].code(turnoActual, objetivo);
-		lifeUpdate();
-			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
+		winCheck();
 		turnoChange();
 	}
 
@@ -395,8 +396,8 @@ document.addEventListener('keydown', (ev) => {
 			return;
 		}
 			turnoActual.habs[0].code(turnoActual, objetivo);
-		lifeUpdate();
-			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
+		winCheck();
 		turnoChange();
 	}
 	if (turnoActual === p2Char && ev.key === 'j' || ev.key === 'J'){
@@ -404,8 +405,8 @@ document.addEventListener('keydown', (ev) => {
 			return;
 		}
 			turnoActual.habs[1].code(turnoActual, objetivo);
-		lifeUpdate();
-			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
+		winCheck();
 		turnoChange();
 	}
 	if (turnoActual === p2Char && ev.key === 'o' || ev.key === 'O'){
@@ -413,8 +414,8 @@ document.addEventListener('keydown', (ev) => {
 			return;
 		}
 			turnoActual.habs[2].code(turnoActual, objetivo);
-		lifeUpdate();
-			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
+		winCheck();
 		turnoChange();
 	}
 	if (turnoActual === p2Char && ev.key === 'i' || ev.key === 'I'){
@@ -422,8 +423,8 @@ document.addEventListener('keydown', (ev) => {
 			return;
 		}
 			turnoActual.habs[3].code(turnoActual, objetivo);
-		lifeUpdate();
-			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
+		winCheck();
 		turnoChange();
 	}
 	if (turnoActual === p2Char && ev.key === 'm' || ev.key === 'M'){
@@ -431,8 +432,8 @@ document.addEventListener('keydown', (ev) => {
 			return;
 		}
 			turnoActual.habs[4].code(turnoActual, objetivo);
-		lifeUpdate();
-			msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
+		msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
+		winCheck();
 		turnoChange();
 	}
 });
@@ -446,8 +447,8 @@ kW.addEventListener('click', () =>{
 		return;
 	}
 	turnoActual.habs[0].code(turnoActual, objetivo);
-	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
+	winCheck();
 	turnoChange();
 });
 kA.addEventListener('click', () =>{
@@ -455,8 +456,8 @@ kA.addEventListener('click', () =>{
 		return;
 	}
 	turnoActual.habs[1].code(turnoActual, objetivo);
-	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
+	winCheck();
 	turnoChange();
 });
 kS.addEventListener('click', () =>{
@@ -464,8 +465,8 @@ kS.addEventListener('click', () =>{
 		return;
 	}
 	turnoActual.habs[2].code(turnoActual, objetivo);
-	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
+	winCheck();
 	turnoChange();
 });
 kD.addEventListener('click', () =>{
@@ -473,8 +474,8 @@ kD.addEventListener('click', () =>{
 		return;
 	}
 	turnoActual.habs[3].code(turnoActual, objetivo);
-	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
+	winCheck();
 	turnoChange();
 });
 kC.addEventListener('click', () =>{
@@ -482,8 +483,8 @@ kC.addEventListener('click', () =>{
 		return;
 	}
 	turnoActual.habs[4].code(turnoActual, objetivo);
-	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
+	winCheck();
 	turnoChange();
 });
 
@@ -492,8 +493,8 @@ kN.addEventListener('click', () =>{
 		return;
 	}
 	turnoActual.habs[0].code(turnoActual, objetivo);
-	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[0].nombreH}!`);
+	winCheck();
 	turnoChange();
 });
 kJ.addEventListener('click', () =>{
@@ -501,8 +502,8 @@ kJ.addEventListener('click', () =>{
 		return;
 	}
 	turnoActual.habs[1].code(turnoActual, objetivo);
-	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[1].nombreH}!`);
+	winCheck();
 	turnoChange();
 });
 kO.addEventListener('click', () =>{
@@ -510,8 +511,8 @@ kO.addEventListener('click', () =>{
 		return;
 	}
 	turnoActual.habs[2].code(turnoActual, objetivo);
-	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[2].nombreH}!`);
+	winCheck();
 	turnoChange();
 });
 kI.addEventListener('click', () =>{
@@ -519,8 +520,8 @@ kI.addEventListener('click', () =>{
 		return;
 	}
 	turnoActual.habs[3].code(turnoActual, objetivo);
-	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[3].nombreH}!`);
+	winCheck();
 	turnoChange();
 });
 kM.addEventListener('click', () =>{
@@ -528,7 +529,7 @@ kM.addEventListener('click', () =>{
 		return;
 	}
 	turnoActual.habs[4].code(turnoActual, objetivo);
-	lifeUpdate();
 	msg(`¡${turnoActual.nombre} ha usado ${turnoActual.habs[4].nombreH}!`);
+	winCheck();
 	turnoChange();
 });

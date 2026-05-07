@@ -9,8 +9,8 @@ class Habilidades {
 };
 
 // Akiko
-let akikoHab1 =  new Habilidades("Sanación de de la flor mágica", "Al usar esta habilidad, Akiko se cura a sí misma con el 20% de su vida", 3, (caster, target) => {
-	caster.hp += Math.floor(caster.maxHp * 0.2);
+let akikoHab1 =  new Habilidades("Sanación de de la flor mágica", "Al usar esta habilidad, Akiko se cura a sí misma con el 22% de vida máxima", 3, (caster, target) => {
+	caster.hp += Math.floor(caster.maxHp * 0.22);
 	if (caster.hp > caster.maxHp){
 		caster.hp = caster.maxHp;
 	};
@@ -23,12 +23,12 @@ let akikoHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 // Adam
 let adamHab1 =  new Habilidades("Bendición de la luna dorada", "Adam recupera el 20% de su vida e inflinge un 5% de daño adicional", 10, (caster, target) => {
 	caster.hp += Math.floor(caster.maxHp * 0.2);
-	caster.cATK += Math.floor(caster.cATK * 0.05);
-	target.hp -= caster.cATK;
+	let x = caster.cATK += Math.floor(caster.cATK * 0.05);
+	target.hp -= x;
 	if (caster.hp > caster.maxHp){
 		caster.hp = caster.maxHp;
 	};
-	if(target.hp < 0){
+	if(target.hp <= 0){
 		target.hp = 0;
 		return;
 	};
@@ -88,7 +88,19 @@ let zaireHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 let zaireHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 
 // Zelie
-let zelieHab1 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let zelieHab1 =  new Habilidades("Prueba de daño", "desc", 1, (caster, target) => {
+	caster.hp -= Math.floor(caster.maxHp * 0.2);
+	let x = caster.cATK + Math.floor(target.maxHp*0.25);
+	target.hp -= x;
+	if (caster.hp <= 0){
+		caster.hp = 0;
+		return;
+	};
+	if(target.hp <= 0){
+		target.hp = 0;
+		return;
+	};
+});
 let zelieHab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 let zelieHab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 let zelieHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
