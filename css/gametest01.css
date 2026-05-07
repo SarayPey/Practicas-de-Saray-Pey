@@ -45,6 +45,13 @@ nav a {
 	text-decoration: none;
 }
 
+.material-symbols-outlined {
+	font-size: 30px;
+	color: var(--old2);
+	font-family: 'Material Symbols Outlined';
+	cursor: pointer;
+}
+
 nav a:hover {
 	color: var(--white);
 	text-shadow: 0 0 5px var(--old3);
@@ -144,6 +151,7 @@ nav a:hover {
 	padding: 7px 50px;
 	margin: 10px;
 	width: fit-content;
+	cursor: pointer;
 }
 
 #boton button:hover {
@@ -183,6 +191,7 @@ nav a:hover {
 	width: 25px;
 	height: 25px;
 	font-size: 30px;
+	cursor: pointer;
 }
 
 .hab.p12 {
