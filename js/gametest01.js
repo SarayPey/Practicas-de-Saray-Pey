@@ -54,7 +54,7 @@ music.addEventListener('click', () => {
 	} else if (music.textContent === "music_off"){
 		music.textContent = "music_note";
 		song.currentTime = 0;
-		song.volume = 0.2;
+		song.volume = 1;
 		song.play()
 		console.log(`Reproduciendo ${song.textContent}`);
 	}
@@ -88,7 +88,7 @@ sCho.addEventListener('change', (ev)=> {
 		song.src = "../audio/006.GreatJob.mp3";
 		song.textContent = "006 - \"Great job\", Saray Pey";
 	}
-	song.volume = 0.2;
+	song.volume = 1;
 	song.currentTime = 0;
 	song.play();
 	console.log(`Canción cambiada.`);
@@ -212,7 +212,7 @@ function basicG(){
 		if(!gameMode){
 			return;
 		}
-	let atk = Math.floor(Math.random() * (turnoActual.maxATK - turnoActual.minATK + 1)) + turnoActual.minATK;
+	let atk = turnoActual.cATK;
 	objetivo.hp -= atk;
 	if(objetivo.hp < 0){
 		objetivo.hp = 0;
@@ -252,7 +252,7 @@ function game(){
 	msg("Asignando primer turno…");
 	let turnoIni = Math.floor(Math.random() * 2);
 	console.log(turnoIni);
-	if(turnoIni === 1){
+	if(turnoIni === 0){
 		msg(`El primer turno es de Jugador 1 (${p1Char.nombre})`);
 		turnoActual = p1Char;
 		objetivo = p2Char;

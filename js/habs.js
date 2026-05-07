@@ -10,7 +10,7 @@ class Habilidades {
 
 // Akiko
 let akikoHab1 =  new Habilidades("Sanación de de la flor mágica", "Al usar esta habilidad, Akiko se cura a sí misma con el 20% de su vida", 3, (caster, target) => {
-	caster.hp = caster.hp + Math.floor(caster.maxHp * 0.2);
+	caster.hp += Math.floor(caster.maxHp * 0.2);
 	if (caster.hp > caster.maxHp){
 		caster.hp = caster.maxHp;
 	};
@@ -21,7 +21,18 @@ let akikoHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 let akikoHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 
 // Adam
-let adamHab1 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let adamHab1 =  new Habilidades("Bendición de la luna dorada", "Adam recupera el 20% de su vida e inflinge un 5% de daño adicional", 10, (caster, target) => {
+	caster.hp += Math.floor(caster.maxHp * 0.2);
+	caster.cATK += Math.floor(caster.cATK * 0.05);
+	target.hp -= caster.cATK;
+	if (caster.hp > caster.maxHp){
+		caster.hp = caster.maxHp;
+	};
+	if(target.hp < 0){
+		target.hp = 0;
+		return;
+	};
+});
 let adamHab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 let adamHab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 let adamHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});

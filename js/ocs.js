@@ -1,4 +1,4 @@
-import {Habilidades, akikoHab1, akikoHab2, akikoHab3, akikoHab4, akikoHab5,
+import {akikoHab1, akikoHab2, akikoHab3, akikoHab4, akikoHab5,
 				adamHab1, adamHab2, adamHab3, adamHab4, adamHab5,
 				hasaniHab1, hasaniHab2, hasaniHab3, hasaniHab4, hasaniHab5,
 				jacobHab1, jacobHab2, jacobHab3, jacobHab4, jacobHab5,
@@ -8,12 +8,12 @@ import {Habilidades, akikoHab1, akikoHab2, akikoHab3, akikoHab4, akikoHab5,
 				yunHab1, yunHab2, yunHab3, yunHab4, yunHab5,
 				zaireHab1, zaireHab2, zaireHab3, zaireHab4, zaireHab5,
 				zelieHab1, zelieHab2, zelieHab3, zelieHab4, zelieHab5} from './habs.js';
-import {Habilidades} from './habs.js';
 
 class OC {
 	constructor(nombre, varName, minATK, maxATK, maxHp, color, habs){
 		this.nombre = nombre;
 		this.varName = varName;
+		this.cATK = Math.floor(Math.random() * (maxATK - minATK + 1)) + minATK;
 		this.minATK = minATK;
 		this.maxATK = maxATK;
 		this.maxHp = maxHp;
@@ -21,7 +21,8 @@ class OC {
 		this.color = color;
 		this.habs = habs;
 	}
-};
+}
+
 let akiko   = new OC("Akiko", "akiko", 7, 17, 124, "#fcef40", [akikoHab1, akikoHab2, akikoHab3, akikoHab4, akikoHab5]);                // Lobita inmortal
 let adam    = new OC("Adam", "adam", 9, 28, 105, "#e99221", [adamHab1, adamHab2, adamHab3, adamHab4, adamHab5]);                       // Detective traumado
 let hasani  = new OC("Hasani", "hasani", 7, 22, 100, "#296ed6", [hasaniHab1, hasaniHab2, hasaniHab3, hasaniHab4, hasaniHab5]);         // Mago tritón traumado con DID
