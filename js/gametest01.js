@@ -1,5 +1,5 @@
-import {akiko, adam, hasani, jacob, kizumi, melissa, varoun, yun, zaire, zelie, default1, default2} from './ocs.js'
-let personajes = [akiko, adam, hasani, jacob, kizumi, melissa, varoun, yun, zaire, zelie];
+import {akiko, adam, hasani, jacob, kira, kizumi, melissa, varoun, yun, zaire, zelie, default1, default2} from './ocs.js'
+let personajes = [akiko, adam, hasani, jacob, kira, kizumi, melissa, varoun, yun, zaire, zelie];
 
 // Variables
 let gameMode = false;
