@@ -15,7 +15,14 @@ let akikoHab1 =  new Habilidades("Sanación de de la flor mágica", "Al usar est
 		caster.hp = caster.maxHp;
 	};
 });
-let akikoHab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let akikoHab2 =  new Habilidades("Defensa dorada", "desc", 1, (caster, target) => {
+	let x = caster.cATK += Math.floor(caster.cATK * 0.1);
+	target.hp -= x;
+	if(target.hp <= 0){
+		target.hp = 0;
+		return;
+	};
+});
 let akikoHab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 let akikoHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 let akikoHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
@@ -45,7 +52,7 @@ let hasaniHab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 let hasaniHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 let hasaniHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 
-// Jacob - Enfocado en ataque
+// Jacob - Enfocado en ataque y autodaño
 let jacobHab1 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 let jacobHab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 let jacobHab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
