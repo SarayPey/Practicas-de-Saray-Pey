@@ -100,7 +100,7 @@ let zaireHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 let zaireHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
 
 // Zelie - Enfocado en ataque y autodaño
-let zelieHab1 =  new Habilidades("Prueba de daño", "desc", 1, (caster, target) => {
+let zelieHab1 =  new Habilidades("Prueba de daño", "desc", 2, (caster, target) => {
 	caster.hp -= Math.floor(caster.maxHp * 0.2);
 	let x = caster.cATK + Math.floor(target.maxHp*0.25);
 	target.hp -= x;
