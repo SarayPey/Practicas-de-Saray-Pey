@@ -6,16 +6,28 @@ let meses32 = [1, 3, 5, 7, 9, 11, 13, 15];
 let meses33 = [2, 4, 6, 8, 10, 12, 14];
 
 let tiem = 1000;
+let timeGame;
 
-let segGame  = 0;
-let minGame  = 0;
-let horGame  = 0;
-let diaGame  = 1;
+let seg = 0;
+let min = 0;
+let hor = 0;
+let dia = 1;
+
+let segGame  = ("0" + seg).slice(-2);
+let minGame  = ("0" + min).slice(-2);
+let horGame  = ("0" + hor).slice(-2);
+let diaGame  = ("0" + dia).slice(-2);
 let mesGame  = 0;
 let anioGame = 3045;
 
 let hora  = document.querySelector("#horaG");
 let fecha = document.querySelector("#fechaG");
+
+let fast   = document.querySelector("#bFlash");
+let normal = document.querySelector("#bNormal");
+let playP  = document.querySelector("#bPausa");
+
+let oc = document.querySelector("#char");
 
 let messageLog = document.querySelector("#chat");
 
@@ -27,45 +39,69 @@ function msg(mensaje){
 
 hora.textContent = `${horGame}:${minGame}:${segGame}`;
 fecha.textContent = `${diaGame} / ${meses[mesGame]} / ${anioGame}`;
+
 function tiempo(){
-	segGame++;
-	if(segGame >= 60){
-		minGame++;
-		segGame = 0;
-	} else if(minGame >= 60){
-		horGame++;
-		minGame = 0;
-		segGame = 0;
-	} else if(horGame >= 30){
-		diaGame++;
-		horGame = 0;
-		minGame = 0;
-		segGame = 0;
-	} else if (meses32.includes(mesGame) && diaGame >= 32) {
-		mesGame++;
-		diaGame = 0;
-		horGame = 0;
-		minGame = 0;
-		segGame = 0;
-	} else if (meses33.includes(mesGame) && diaGame >= 33) {
-		mesGame++;
-		diaGame = 0;
-		horGame = 0;
-		minGame = 0;
-		segGame = 0;
-	} else if(mesGame >= 15){
-		anioGame++;
-		mesGame = 0;
-		diaGame = 0;
-		horGame = 0;
-		minGame = 0;
-		segGame = 0;
-	};
-	hora.textContent = `${horGame}:${minGame}:${segGame}`;
-	fecha.textContent = `${diaGame} / ${meses[mesGame]} / ${anioGame}`;
+	timeGame = setInterval( ()=> {
+		seg++;
+		if(seg >= 60){
+			min++;
+			seg = 0;
+		} else if(min >= 60){
+			hor++;
+			min = 0;
+			seg = 0;
+		} else if(hor >= 30){
+			dia++;
+			hor = 0;
+			min = 0;
+			seg = 0;
+		} else if (meses32.includes(mesGame) && dia >= 32) {
+			mesGame++;
+			dia = 0;
+			hor = 0;
+			min = 0;
+			seg = 0;
+		} else if (meses33.includes(mesGame) && dia >= 33) {
+			mesGame++;
+			dia = 0;
+			hor = 0;
+			min = 0;
+			seg = 0;
+		} else if(mesGame >= 15){
+			anioGame++;
+			mesGame = 0;
+			dia = 0;
+			hor = 0;
+			min = 0;
+			seg = 0;
+		};
+		segGame  = ("0" + seg).slice(-2);
+		minGame  = ("0" + min).slice(-2);
+		horGame  = ("0" + hor).slice(-2);
+		diaGame  = ("0" + dia).slice(-2);
+		hora.textContent = `${horGame}:${minGame}:${segGame}`;
+		fecha.textContent = `${diaGame} / ${meses[mesGame]} / ${anioGame}`
+	}, tiem);
 };
 
+function changeTime(newT){
+	tiem = newT;
+	clearInterval(timeGame);
+	tiempo()
+}
 
-setInterval(() => {
-	tiempo();
-}, 1000);
+tiempo();
+
+fast.addEventListener("click", () => {
+	fast.disabled = true;
+	normal.disabled = false;
+	tiem = 10000;
+	changeTime(tiem);
+});
+normal.addEventListener("click", () => {
+	fast.disabled = false;
+	normal.disabled = true;
+	tiem = 1000;
+	changeTime(tiem);
+});
+
