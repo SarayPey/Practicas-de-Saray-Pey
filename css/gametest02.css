@@ -1,1 +1,67 @@
 @import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=VT323&display=swap');
+
+:root {
+	--char: #f1d248;
+	--c1: #e7ebf0;
+	--c2: #2c7ec0;
+	--c3: #002d8d;
+}
+
+* {
+	transition: all .2s;
+	font-family: "VT323";
+}
+
+#tiempo {
+	font-family: "VT323";
+	font-size: 22px;
+	grid-area: time;
+}
+
+#selectOtroOC {
+	margin: auto;
+	grid-area: sele;
+}
+
+#char {
+	background-color: var(--char);
+	width: 100%;
+	max-width:200px;
+	height: 250px;
+	padding: 5%;
+	margin: auto;
+	grid-area: char;
+}
+
+#statCurOC {
+	margin: auto;
+	grid-area: stat;
+}
+
+#chat {
+	grid-area: chat;
+}
+
+#chat, #selectOtroOC, #statCurOC {
+	background-color: var(--c1);
+	border: 7px double var(--c2);
+	color: var(--c3);
+	border-radius: 2px;
+	height: 120px;
+	text-align: center;
+	margin: 10px auto;
+	padding: 20px;
+	overflow-y: auto;
+	font-family: "Pixelify Sans";
+	font-size: 24px;
+}
+
+body {
+	display: grid;
+	grid-template-columns: 1fr 1fr 1fr;
+	grid-template-rows: 1fr 1fr 2fr;
+	grid-template-areas:
+	'time time time'
+	'sele char stat'
+	'chat chat chat';
+}

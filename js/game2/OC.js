@@ -1,16 +1,17 @@
 let estadoE = ["Neutral", "Feliz", "Triste", "Depresivo", "Molesto", "Enojado", "Insomnio", "Asustado", "Avergonzado", "Halagado", "Dormido", "Muerto"];
 
 class OC {
-  constructor(nombre, varNom, nombreC, cumple, edad, estadoEm, estabMent, hambre, energia){
+  constructor(nombre, varNom, nombreC, color, cumple, edad, estadoEm, estabMent, hambre, energia){
     this.nombre = nombre;
     this.varNom = varNom;
     this.nombreC = nombreC;
+    this.color = color;
     this.cumple = cumple;
     this.edad = edad;
     this.estadoEm = estadoE[estadoEm]; // Estado emocional (index).
     this.estabMent = estabMent; // Estabilidad mental (0 a 100).
     this.hambre = hambre; // 0 a 100.
-    this.energia = energia // 0 a 100.
+    this.energia = energia; // 0 a 100.
     this.amigos = [];
   };
   mostrarFicha(){
