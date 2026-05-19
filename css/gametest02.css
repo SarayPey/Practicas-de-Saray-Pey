@@ -29,10 +29,17 @@ header {
 
 button {
 	background-color: var(--c1);
-	border: 4.9px double var(--c2);
+	border: 5px double var(--c2);
+	padding: 5px;
 	color: var(--c3);
 	align-content: center;
-	border-radius: 6px;
+	border-radius: 3px;
+}
+
+#bFlash, #bNormal, #bPause{
+	padding: auto;
+	height: 50px;
+	width: 50px;
 }
 
 .material-symbols-outlined {
@@ -105,6 +112,10 @@ header a {
 	height: 100%;
 	margin: 0;
 	box-sizing: border-box;
+}
+
+#chat {
+	padding-top: 25px;
 }
 
 body {

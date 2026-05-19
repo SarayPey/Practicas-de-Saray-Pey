@@ -1,4 +1,4 @@
-import {adam, melissa} from './charList.js';
+import {none, adam, melissa} from './charList.js';
 let ocList = [adam, melissa]
 
 let meses = ["Janisra", "Fellastrea", "Malyya", "Linyaser", "Meiryla", "Junsyer", "Qynryos", "Nyndia", "Precyd", "Ophyra", "Idrilio", "Elistrae", "Hasikira", "Cersylio", "Estelyst"];
@@ -29,13 +29,19 @@ let playP  = document.querySelector("#bPausa");
 
 let oc = document.querySelector("#char");
 
-let messageLog = document.querySelector("#chat");
+let ocChat = document.querySelector("#chat");
+let dialog = document.createElement('p');
 
 function msg(mensaje){
-	messageLog.innerHTML += "<br>";
-	messageLog.innerHTML = mensaje;
-	messageLog.scrollTop = messageLog.scrollHeight;
+	ocChat.innerHTML += "<br>";
+	dialog.innerHTML += mensaje;
+	ocChat.innerHTML += dialog.innerHTML;
+	ocChat.scrollTop = ocChat.scrollHeight;
 };
+
+oc.addEventListener('click', () => {
+	msg("Hola.");
+})
 
 hora.textContent = `${horGame}:${minGame}:${segGame}`;
 fecha.textContent = `${diaGame} / ${meses[mesGame]} / ${anioGame}`;

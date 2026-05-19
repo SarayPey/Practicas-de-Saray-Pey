@@ -122,7 +122,6 @@ p1S.addEventListener('click', () => {
 
 p2S.addEventListener('click', () => {
 	oc2S.innerHTML = "";
-	//Aquí debe habilitar la muestra y selección de personajes
 	for (const x of personajes) {
 		let pNew = document.createElement('p');
 		let valor = `${x.nombre}<br>Rango de atk: ${x.minATK}-${x.maxATK} | HP: ${x.maxHp}<br>`;
