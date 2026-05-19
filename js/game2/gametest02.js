@@ -1,5 +1,5 @@
-import {none, adam, melissa} from './charList.js';
-let ocList = [adam, melissa]
+import {none, adam, julian, melissa} from './charList.js';
+let ocList = [adam, julian, melissa]
 
 let meses = ["Janisra", "Fellastrea", "Malyya", "Linyaser", "Meiryla", "Junsyer", "Qynryos", "Nyndia", "Precyd", "Ophyra", "Idrilio", "Elistrae", "Hasikira", "Cersylio", "Estelyst"];
 let meses32 = [1, 3, 5, 7, 9, 11, 13, 15];
@@ -31,16 +31,29 @@ let oc = document.querySelector("#char");
 
 let ocChat = document.querySelector("#chat");
 let dialog = document.createElement('p');
+let ocCur = none;
+let texto;
 
 function msg(mensaje){
-	ocChat.innerHTML += "<br>";
-	dialog.innerHTML += mensaje;
-	ocChat.innerHTML += dialog.innerHTML;
 	ocChat.scrollTop = ocChat.scrollHeight;
+	dialog.textContent = "";
+	ocChat.innerHTML = "- - Haz click al personaje para inteactuar - -";
+	ocChat.innerHTML += "<br>";
+	let indice = 0;
+	function escribirTexto() {
+		dialog.textContent = "";
+		if (indice < mensaje.length) {
+			dialog.textContent += mensaje.charAt(indice);
+			ocChat.innerHTML += dialog.innerHTML;
+			indice++;
+			setTimeout(escribirTexto, 100);
+		}
+	}
+	escribirTexto();
 };
 
 oc.addEventListener('click', () => {
-	msg("Hola.");
+	msg("Hola… ¿cómo estás?");
 })
 
 hora.textContent = `${horGame}:${minGame}:${segGame}`;

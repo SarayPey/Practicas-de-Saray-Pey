@@ -1,12 +1,15 @@
-let estadoE = ["Neutral", "Feliz", "Triste", "Depresivo", "Molesto", "Enojado", "Insomnio", "Asustado", "Avergonzado", "Halagado", "Dormido", "Muerto"];
+let estadoE = ['Neutral', 'Feliz', 'Triste', 'Depresivo', 'Ansioso', 'Molesto', 'Enojado', 'Insomnio', 'Asustado', 'Avergonzado', 'Halagado', 'Dormido', 'Muerto', 'Animado', 'Extrovertido', 'Tímido', 'Preocupado', 'Bromista']; //18//
 
 class OC {
-  constructor(nombre, varNom, nombreC, color, cumple, edad, estadoEm, estabMent, hambre, energia){
+  constructor(nombre, varNom, nombreC, sexo, color, dia, mes, edad, estadoEm, estabMent, hambre, energia){
     this.nombre = nombre;
     this.varNom = varNom;
     this.nombreC = nombreC;
+    this.sexo = sexo; // F(femenino) M(masculino)
     this.color = color;
-    this.cumple = cumple;
+    this.dia = dia;
+    this.mes = mes;
+    this.cumple = `${dia}/${mes}`;
     this.edad = edad;
     this.estadoEm = estadoE[estadoEm]; // Estado emocional (index).
     this.estabMent = estabMent; // Estabilidad mental (0 a 100).
@@ -30,18 +33,18 @@ class OC {
     }
   };
   mostrarTodo(){
-    console.log("------");
+    console.log('------');
     console.log(`--${this.nombre}--`);
-    console.log("------");
-    console.log("General");
+    console.log('------');
+    console.log('General');
     this.mostrarFicha()
-    console.log("------");
-    console.log("Stats");
+    console.log('------');
+    console.log('Stats');
     this.mostrarStats();
-    console.log("------");
-    console.log("Amigos");
+    console.log('------');
+    console.log('Amigos');
     this.mostrarAmi();
-    console.log("------\n");
+    console.log('------\n');
   };
   cumpleanios(){
     this.edad += 1;

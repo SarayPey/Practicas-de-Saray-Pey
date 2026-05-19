@@ -5,6 +5,7 @@
 	--c1: #e7ebf0;
 	--c2: #2c7ec0;
 	--c3: #002d8d;
+	--bg: #11264d;
 }
 
 * {
@@ -79,7 +80,8 @@ header a {
 #char {
 	grid-area: char;
 	background-color: var(--char);
-	width: 100%;
+	margin: auto;
+	width: 70%;
 	height: 100%;
 	max-width: unset;
 	padding: 20px;
@@ -108,17 +110,16 @@ header a {
 	font-family: "Pixelify Sans";
 	font-size: 24px;
 	padding: 10px;
+	padding-top: 25px;
 	width: 100%;
 	height: 100%;
 	margin: 0;
 	box-sizing: border-box;
-}
-
-#chat {
-	padding-top: 25px;
+	overflow: auto;
 }
 
 body {
+	background-color: var(--bg);
 	display: grid;
 	height: 945px;
 	margin: 0;
