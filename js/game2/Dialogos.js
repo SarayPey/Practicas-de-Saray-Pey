@@ -7,3 +7,5 @@ class Dialogo {
 }
 
 let adamD1 = new Dialogo('adamD1', 'adam', 'Saludos, ¿quieres que cocine algo?');
+
+export {adamD1};

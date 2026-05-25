@@ -35,25 +35,28 @@ let ocCur = none;
 let texto;
 
 function msg(mensaje){
+	console.log(mensaje);
 	ocChat.scrollTop = ocChat.scrollHeight;
 	dialog.textContent = "";
 	ocChat.innerHTML = "- - Haz click al personaje para inteactuar - -";
 	ocChat.innerHTML += "<br>";
 	let indice = 0;
+	let msj = ocCur.dialogos[mensaje];
+	console.log(msj)
 	function escribirTexto() {
 		dialog.textContent = "";
-		if (indice < mensaje.length) {
-			dialog.textContent += mensaje.charAt(indice);
+		if (indice < msj.length) {
+			dialog.textContent += msj.charAt(indice);
 			ocChat.innerHTML += dialog.innerHTML;
 			indice++;
-			setTimeout(escribirTexto, 100);
+			setTimeout(escribirTexto, 75);
 		}
 	}
 	escribirTexto();
 };
 
 oc.addEventListener('click', () => {
-	msg("Hola… ¿cómo estás?");
+	msg(Math.floor(Math.random() * ocCur.dialogos.length));
 })
 
 hora.textContent = `${horGame}:${minGame}:${segGame}`;
