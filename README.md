@@ -1,7 +1,10 @@
 # Practicas-de-Saray-Pey
 
-Simplemente algunas prácticas de lenguajes de programación usando el Shénmìverso
+Simplemente algunas prácticas de lenguajes de programación usando el Shénmìverso.
 
 ***
 
-[Página web (GitHub Pages)](https://saraypey.github.io/Practicas-de-Saray-Pey/)
+[¡Ve la página aquí](https://saraypey.github.io/Practicas-de-Saray-Pey/)
+
+> [!TIP]
+> Para entender el contexto de estas páginas, mira el repositorio `Shenmiverso-lore-in-markdown`.
