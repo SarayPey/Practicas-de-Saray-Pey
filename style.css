@@ -21,3 +21,8 @@ table {
 	border-width: 2px;
 	margin: auto;
 }
+
+.easteregg {
+	text-decoration: none;
+	cursor: none;
+}
