@@ -7,16 +7,18 @@
 		<style>
 			#adam {
 				background-color: #adadad;
-				width: 64px;
-				height: 100px;
+				width: 125px;
+				height: 236px;
 				padding: 1%;
+				border-radius: 5px;
 			}
 		</style>
 	</head>
 	<body>
 		<p id="tiempo"><span id="fechaG"></span> |*| <span id="horaG"></span></p>
-		<p>Este es Adam chiquito, trátalo bien.</p>
+		<p>Este es Adam, trátalo bien.</p>
 		<div id="adam"></div>
+		<br>
 		<a href="../index.html">Volver a la página principal</a>
 	</body>
 		<script>
@@ -25,7 +27,7 @@
 			let minimo = -100;
 			let maximo = 100;
 			class OC{
-				constructor(nombre, varName, color, edad, dia, mes, altura, peso, hambre, energia, estado, estabMent) {
+				constructor(nombre, varName, color, edad, dia, mes, altura, peso, hambre, energia, estado, estabMent, animo) {
 					this.nombre = nombre;
 					this.varName = varName;
 					this.color = color;
@@ -39,45 +41,29 @@
 					this.energia = energia;
 					this.estado = estadoEmoci[estado];
 					this.estabMent = estabMent;
+					this.animo = animo;
 				}
 			}
-			let adamC = new OC('Adam', 'adamC', '#ffcf00', 9, 16, 7, 125, 32.81, 20, 80, 0);
-			adamsito.style.backgroundColor = adamC.color;
+			let adamC = new OC('Adam', 'adamC', '#ffcf00', 9, 16, 7, 125, 32.81, 20, 80, 0, 60);
 			let meses = ["Janisra", "Fellastrea", "Malyya", "Linyaser", "Meiryla", "Junsyer", "Qynryos", "Nyndia", "Precyd", "Ophyra", "Idrilio", "Elistrae", "Hasikira", "Cersylio", "Estelyst"];
 			let meses32 = [1, 3, 5, 7, 9, 11, 13, 15];
 			let meses33 = [2, 4, 6, 8, 10, 12, 14];
-
 			let tiem = 1000;
 			let timeGame;
-
 			let seg = 0;
 			let min = 0;
 			let hor = 0;
 			let dia = 1;
-
 			let segGame  = ("0" + seg).slice(-2);
 			let minGame  = ("0" + min).slice(-2);
 			let horGame  = ("0" + hor).slice(-2);
 			let diaGame  = ("0" + dia).slice(-2);
 			let mesGame  = 0;
 			let anioGame = 3045;
-
 			let hora  = document.querySelector("#horaG");
 			let fecha = document.querySelector("#fechaG");
-
-			let fast   = document.querySelector("#bFlash");
-			let normal = document.querySelector("#bNormal");
-			let playP  = document.querySelector("#bPausa");
-
-			let oc = document.querySelector("#char");
-
-			let ocChat = document.querySelector("#chat");
-			let dialog = document.createElement('p');
-			let texto;
-
 			hora.textContent = `${horGame}:${minGame}:${segGame}`;
 			fecha.textContent = `${diaGame} / ${meses[mesGame]} / ${anioGame}`;
-
 			function tiempo(){
 				timeGame = setInterval( ()=> {
 					seg++;
@@ -121,7 +107,16 @@
 					fecha.textContent = `${diaGame} / ${meses[mesGame]} / ${anioGame}`
 				}, tiem);
 			};
-
+			function feliz(obj){
+				obj.animate([
+					{backgroundColor : '#f4aabf', transform : 'translateY(-15px)'},
+					{backgroundColor : adamC.color, transform : 'translateY(0px)'}],
+					{duration: 750, easing: 'cubic-bezier(.31,.55,.14,1.54)'});
+			};
+			adamsito.style.backgroundColor = adamC.color;
+			if(adamC.nombre === "Adam"){
+				feliz(adamsito)
+			}
 			tiempo();
 		</script>
 </html>
