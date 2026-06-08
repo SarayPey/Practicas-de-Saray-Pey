@@ -28,67 +28,112 @@ fecha.textContent = `${diaGame} / ${meses[mesGame]} / ${anioGame}`;
 
 let adamsito = document.querySelector("#adam");
 let statsAdam = document.querySelector("#stats");
+let popup = document.querySelector('#popup');
+let popupTxt = document.querySelector('#popup p');
+
+// Botones
+let alimenta = document.querySelector('#alimentar');
+
+function pppTxShow(text, t){
+	popupTxt.textContent = "";
+	popup.showModal();
+	let indice = 0;
+	function escribirTextoT() {
+		if (indice < text.length) {
+			popupTxt.textContent += text.charAt(indice);
+			indice++;
+			setTimeout(escribirTextoT, 70);
+		}
+	}
+	escribirTextoT()
+	setTimeout(() => {
+		popup.close();
+	}, t);
+}
 
 let adamC = new OC('Adam', 'adamC', '#ffcf00', 9, 16, 7, 125, 32.81, 20, 80, 0, 60, 80, 100);
 function tiempo(){
-    timeGame = setInterval( ()=> {
-        seg++;
-        if(seg >= 60){
-            min++;
-            seg = 0;
-        } else if(min >= 60){
-            hor++;
-            min = 0;
-            seg = 0;
-        } else if(hor >= 30){
-            dia++;
-            hor = 0;
-            min = 0;
-            seg = 0;
-        } else if (meses32.includes(mesGame) && dia >= 32) {
-            mesGame++;
-            dia = 0;
-            hor = 0;
-            min = 0;
-            seg = 0;
-        } else if (meses33.includes(mesGame) && dia >= 33) {
-            mesGame++;
-            dia = 0;
-            hor = 0;
-            min = 0;
-            seg = 0;
-        } else if(mesGame >= 15){
-            anioGame++;
-            mesGame = 0;
-            dia = 0;
-            hor = 0;
-            min = 0;
-            seg = 0;
-        };
-        segGame  = ("0" + seg).slice(-2);
-        minGame  = ("0" + min).slice(-2);
-        horGame  = ("0" + hor).slice(-2);
-        diaGame  = ("0" + dia).slice(-2);
-        hora.textContent = `${horGame}:${minGame}:${segGame}`;
-        fecha.textContent = `${diaGame} / ${meses[mesGame]} / ${anioGame}`
-    }, tiem);
+	timeGame = setInterval( ()=> {
+		seg++;
+		if(seg >= 60){
+			min++;
+			seg = 0;
+		} else if(min >= 60){
+			hor++;
+			min = 0;
+			seg = 0;
+		} else if(hor >= 30){
+			dia++;
+			hor = 0;
+			min = 0;
+			seg = 0;
+		} else if (meses32.includes(mesGame) && dia >= 32) {
+			mesGame++;
+			dia = 0;
+			hor = 0;
+			min = 0;
+			seg = 0;
+		} else if (meses33.includes(mesGame) && dia >= 33) {
+			mesGame++;
+			dia = 0;
+			hor = 0;
+			min = 0;
+			seg = 0;
+		} else if(mesGame >= 15){
+			anioGame++;
+			mesGame = 0;
+			dia = 0;
+			hor = 0;
+			min = 0;
+			seg = 0;
+		};
+		segGame  = ("0" + seg).slice(-2);
+		minGame  = ("0" + min).slice(-2);
+		horGame  = ("0" + hor).slice(-2);
+		diaGame  = ("0" + dia).slice(-2);
+		hora.textContent = `${horGame}:${minGame}:${segGame}`;
+		fecha.textContent = `${diaGame} / ${meses[mesGame]} / ${anioGame}`
+	}, tiem);
 };
+
 function feliz(obj){
-    obj.animate([
-        {backgroundColor : '#f4aabf', transform : 'translate(0px, 0px)'},
-        {backgroundColor : '#f4aabf', transform : 'translate(0px, -15px)'},
-        {backgroundColor : adamC.color, transform : 'translate(0px, 0px)'}],
-        {duration: 1000, easing: 'cubic-bezier(.1,.55,.14,1.54)'});
+	obj.animate([
+		{backgroundColor : '#f4aabf', transform : 'translate(0px, 0px)'},
+		{backgroundColor : '#f4aabf', transform : 'translate(0px, -15px)'},
+		{backgroundColor : adamC.color, transform : 'translate(0px, 0px)'}],
+		{duration: 1000, easing: 'cubic-bezier(.1,.55,.14,1.54)'});
 };
+
 adamsito.style.backgroundColor = adamC.color;
-if(adamC.nombre === "Adam"){
-    feliz(adamsito);
-}
+
+alimenta.addEventListener('click', () => {
+	pppTxShow('Adam se ha alimentado.', 2500);
+	adamC.hambre -= 10;
+	adamC.animo += 10;
+	adamC.estabMent += 1;
+	stats.innerHTML = ' ';
+	if(adamC.hambre <= 0){
+		adamC.hambre = 0;
+	} else {
+		adamC.hambre = adamC.hambre;
+	}
+	if(adamC.animo >= 100){
+		adamC.animo = 100;
+	} else {
+		adamC.animo = adamC.animo;
+	}
+	if(adamC.estabMent >= 100){
+		adamC.estabMent = 100;
+	} else {
+		adamC.estabMent = adamC.estabMent;
+	}
+	adamsitoStatsUpdate();
+});
 
 function adamsitoStatsUpdate(){
-    let stats = document.createElement('p');
-    stats.innerHTML = `${adamC.nombre} — ${adamC.edad} años (${adamC.cumpleanios})<br>Estado emocional: ${adamC.estado}<br>Energía: ${adamC.energia}/100<br>Salud: ${adamC.salud}/100<br>Hambre: ${adamC.hambre}/100<br>Estabilidad mental: ${adamC.estabMent}/100`;
-    statsAdam.appendChild(stats);
+	let stats = document.createElement('p');
+	stats.innerHTML = `${adamC.nombre} — ${adamC.edad} años (cumpleaños: ${adamC.cumpleanios})<br>Altura y peso: ${adamC.altura}, ${adamC.peso}<br>Estado emocional: ${adamC.estado}<br>Energía: ${adamC.energia}/100<br>Salud: ${adamC.salud}/100<br>Hambre: ${adamC.hambre}/100<br>Estabilidad mental: ${adamC.estabMent}/100<br>Animo: ${adamC.animo}/100`;
+	statsAdam.appendChild(stats);
 }
 tiempo();
 adamsitoStatsUpdate();
