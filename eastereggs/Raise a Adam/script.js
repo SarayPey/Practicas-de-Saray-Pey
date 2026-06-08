@@ -109,7 +109,7 @@ adamsito.style.backgroundColor = adamC.color;
 alimenta.addEventListener('click', () => {
 	pppTxShow('Adam se ha alimentado.', 2500);
 	adamC.hambre -= 10;
-	adamC.animo += 10;
+	adamC.animo += 2;
 	adamC.estabMent += 1;
 	stats.innerHTML = ' ';
 	if(adamC.hambre <= 0){
