@@ -31,9 +31,6 @@ let statsAdam = document.querySelector("#stats");
 let popup = document.querySelector('#popup');
 let popupTxt = document.querySelector('#popup p');
 
-// Botones
-let alimenta = document.querySelector('#alimentar');
-
 function pppTxShow(text, t){
 	popupTxt.textContent = "";
 	popup.showModal();
@@ -50,6 +47,16 @@ function pppTxShow(text, t){
 		popup.close();
 	}, t);
 }
+
+// Botones
+let alimenta = document.querySelector('#alimentar');
+let duerme = document.querySelector('#dormir');
+let responsable = document.querySelector('#chambaEstudio');
+let acaricia = document.querySelector('#carinio');
+let revisa = document.querySelector('#doctor');
+let visita = document.querySelector('#visita');
+
+
 
 let adamC = new OC('Adam', 'adamC', '#ffcf00', 9, 16, 7, 125, 32.81, 20, 80, 0, 60, 80, 100);
 function tiempo(){
@@ -130,9 +137,16 @@ alimenta.addEventListener('click', () => {
 	adamsitoStatsUpdate();
 });
 
+duerme.addEventListener('click', () => {
+	stats.innerHTML = ' ';
+	pppTxShow('Está durmiendo.', 2500);
+	adamC.estado = 7;
+	adamsitoStatsUpdate();
+});
+
 function adamsitoStatsUpdate(){
 	let stats = document.createElement('p');
-	stats.innerHTML = `${adamC.nombre} — ${adamC.edad} años (cumpleaños: ${adamC.cumpleanios})<br>Altura y peso: ${adamC.altura}, ${adamC.peso}<br>Estado emocional: ${adamC.estado}<br>Energía: ${adamC.energia}/100<br>Salud: ${adamC.salud}/100<br>Hambre: ${adamC.hambre}/100<br>Estabilidad mental: ${adamC.estabMent}/100<br>Animo: ${adamC.animo}/100`;
+	stats.innerHTML = `${adamC.nombre} — ${adamC.edad} años (cumpleaños: ${adamC.cumpleanios})<br>Altura y peso: ${adamC.altura}, ${adamC.peso}<br>Estado emocional: ${adamC.estadoE}<br>Energía: ${adamC.energia}/100<br>Salud: ${adamC.salud}/100<br>Hambre: ${adamC.hambre}/100<br>Estabilidad mental: ${adamC.estabMent}/100<br>Animo: ${adamC.animo}/100`;
 	statsAdam.appendChild(stats);
 }
 tiempo();

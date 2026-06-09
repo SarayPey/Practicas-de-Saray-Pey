@@ -1,4 +1,4 @@
-let estadoEmoci = ['Normal', 'Feliz', 'Triste', 'Enojado', 'Mareado', 'Dormido', 'Inconsciente', 'Muerto', 'Dormido'];
+let estadoEmoci = ['Normal', 'Feliz', 'Triste', 'Enojado', 'Mareado', 'Dormido', 'Inconsciente', 'Dormido', 'Muerto'];
 let minimo = -100;
 let maximo = 100;
 class OC {
@@ -14,7 +14,8 @@ class OC {
         this.peso = `${peso}kg`
         this.hambre = hambre;
         this.energia = energia;
-        this.estado = estadoEmoci[estado];
+        this.estado = estado;
+        this.estadoE = estadoEmoci[estado];
         this.estabMent = estabMent;
         this.animo = animo;
         this.salud = salud;
