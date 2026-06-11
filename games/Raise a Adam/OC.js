@@ -20,6 +20,9 @@ class OC {
         this.animo = animo;
         this.salud = salud;
     }
+    update_estado(){
+        this.estadoE = estadoEmoci[this.estado]
+    }
 }
 
 export {OC};

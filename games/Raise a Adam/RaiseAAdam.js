@@ -141,8 +141,20 @@ duerme.addEventListener('click', () => {
 	stats.innerHTML = ' ';
 	pppTxShow('Está durmiendo.', 2500);
 	adamC.estado = 7;
+	adamC.update_estado();
 	adamsitoStatsUpdate();
 });
+
+acaricia.addEventListener('click', () => {
+	stats.innerHTML = ' ';
+	feliz(adamsito);
+	pppTxShow('Adam está feliz por tu cariño', 1000);
+	adamC.animo += Math.floor(Math.random()* (6 - 10 + 1) + 6);
+	adamC.estabMent += Math.floor(Math.random()* (1 - 6 + 1) + 1);
+	adamC.estado = 1;
+	adamC.update_estado();
+	adamsitoStatsUpdate();
+})
 
 function adamsitoStatsUpdate(){
 	let stats = document.createElement('p');
