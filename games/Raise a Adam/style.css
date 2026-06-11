@@ -1,0 +1,72 @@
+@import url('https://fonts.googleapis.com/css2?family=Pixelify+Sans:wght@400..700&family=VT323&display=swap');
+
+:root {
+	--char: #f1d248;
+	--bg: #eff0e7;
+	--c1: #cf980c;
+	--c2: #422d14;
+}
+
+* {
+	transition: all .2s;
+	font-family: "VT323";
+	font-size: 22px;
+	color: var(--c1);
+}
+
+#tiempo {
+	grid-area: tiempo;
+}
+
+#hola {
+	grid-area: cuida;
+	font-size: 36px;
+	font-weight: 500;
+	margin: 5px auto;
+}
+
+#volver {
+	grid-area: reg;
+}
+
+#adam {
+	background-color: #adadad;
+	width: 125px;
+	height: 236px;
+	padding: 1%;
+	border-radius: 5px;
+	grid-area: adam;
+	margin: 50px auto;
+}
+
+#stats {
+	background-color: var(--c2);
+	padding: 1.5% 5%;
+	grid-area: stats;
+}
+
+#buttons {
+	display: flex;
+	flex-wrap: wrap;
+	gap: 10px;
+	grid-area: btn;
+}
+
+#popup {
+	background-color: var(--c2);
+	padding: 1.5% 5%;
+	grid-area: pp;
+}
+
+body {
+	background-color: var(--bg);
+	display: grid;
+	grid-template-columns: 2fr 2fr 1fr;
+	grid-template-areas:
+	'tiempo tiempo tiempo'
+	'cuida cuida reg'
+	'adam stats stats'
+	'btn pp pp';
+	column-gap: 50px;
+	align-items: center;
+}
