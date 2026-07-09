@@ -147,10 +147,10 @@ duerme.addEventListener('click', () => {
 
 acaricia.addEventListener('click', () => {
 	stats.innerHTML = ' ';
+	pppTxShow('Adam está feliz por tu cariño', 2500);
 	feliz(adamsito);
-	pppTxShow('Adam está feliz por tu cariño', 1000);
-	adamC.animo += Math.floor(Math.random()* (6 - 10 + 1) + 6);
-	adamC.estabMent += Math.floor(Math.random()* (1 - 6 + 1) + 1);
+	adamC.animo += Math.floor(Math.random()* (10 - 6 +1) + 6);
+	adamC.estabMent += Math.floor(Math.random()* (6 - 1 + 1) + 1);
 	adamC.estado = 1;
 	adamC.update_estado();
 	adamsitoStatsUpdate();

@@ -1,5 +1,5 @@
-import {akiko, adam, hasani, jacob, kira, kizumi, melissa, varoun, yun, zaire, zelie, default1, default2} from './ocs.js'
-let personajes = [akiko, adam, hasani, jacob, kira, kizumi, melissa, varoun, yun, zaire, zelie];
+import {adam, akiko, callum, hasani, jacob, kira, kizumi, melissa, varoun, yun, zaire, zelie, default1, default2} from './ocs.js'
+let personajes = [adam, akiko, callum, hasani, jacob, kira, kizumi, melissa, varoun, yun, zaire, zelie];
 
 // Variables
 let gameMode = false;
@@ -66,26 +66,26 @@ lib.addEventListener('click', () => {
 	} else if (sCho.style.display === "inline"){
 		sCho.style.display = "none";
 	}
-})
+});
 
 sCho.addEventListener('change', (ev)=> {
 	if (ev.target.value ===  "dS"){
-		song.src = "../audio/001.DigiShop.mp3";
+		song.src = "../../Media/audio/001.DigiShop.mp3";
 		song.textContent = "001 - \"Digi-Shop\", Saray Pey";
 	} else if(ev.target.value === "cAD"){
-		song.src = "../audio/002.ClearAdventureDay.mp3";
+		song.src = "../../Media/audio/002.ClearAdventureDay.mp3";
 		song.textContent = "002 - \"Clear adventure day\", Saray Pey";
 	} else if (ev.target.value === "cDM"){
-		song.src = "../audio/003.ChefDetectiveMantra.mp3";
+		song.src = "../../Media/audio/003.ChefDetectiveMantra.mp3";
 		song.textContent = "003 - \"Chef detective mantra\", Saray Pey";
 	} else if (ev.target.value === "f"){
-		song.src = "../audio/004.FIGHT.mp3";
+		song.src = "../../Media/audio/004.FIGHT.mp3";
 		song.textContent = "004 - \"FIGHT\", Saray Pey";
 	} else if (ev.target.value === "s"){
-		song.src = "../audio/005.Strings.mp3";
+		song.src = "../../Media/audio/005.Strings.mp3";
 		song.textContent = "005 - \"Strings\", Saray Pey";
 	} else if (ev.target.value === "gJ"){
-		song.src = "../audio/006.GreatJob.mp3";
+		song.src = "../../Media/audio/006.GreatJob.mp3";
 		song.textContent = "006 - \"Great job\", Saray Pey";
 	}
 	song.volume = 1;
@@ -93,7 +93,7 @@ sCho.addEventListener('change', (ev)=> {
 	song.play();
 	console.log(`Canción cambiada.`);
 	console.log(`Reproduciendo ${song.textContent}`);
-})
+});
 
 p1S.addEventListener('click', () => {
 	oc1S.innerHTML = "";
@@ -177,7 +177,7 @@ ini.addEventListener('click', () => {
 		if(gameMode){
 			console.log(`Canción cambiada.`);
 			song.pause();
-			song.src = "../audio/004.FIGHT.mp3";
+			song.src = "../../Media/audio/004.FIGHT.mp3";
 			song.textContent = "004 - \"FIGHT\", Saray Pey";
 			song.currentTime = 0;
 			song.play();
@@ -205,7 +205,7 @@ function turnoChange(){
 		msg(`¡Es turno del jugador 1 (${turnoActual.nombre})!`);
 		msg("Presiona ESPACIO o una tecla de habilidad para atacar…");
 	}
-}
+};
 
 function basicG(){
 		if(!gameMode){

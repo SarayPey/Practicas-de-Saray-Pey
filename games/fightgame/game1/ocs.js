@@ -1,5 +1,6 @@
-import {akikoHab1, akikoHab2, akikoHab3, akikoHab4, akikoHab5,
-				adamHab1, adamHab2, adamHab3, adamHab4, adamHab5,
+import {adamHab1, adamHab2, adamHab3, adamHab4, adamHab5,
+				akikoHab1, akikoHab2, akikoHab3, akikoHab4, akikoHab5,
+				callumHab1, callumHab2, callumHab3, callumHab4, callumHab5,
 				hasaniHab1, hasaniHab2, hasaniHab3, hasaniHab4, hasaniHab5,
 				jacobHab1, jacobHab2, jacobHab3, jacobHab4, jacobHab5,
 				kiraHab1, kiraHab2, kiraHab3, kiraHab4, kiraHab5,
@@ -24,8 +25,9 @@ class OC {
 	}
 }
 
-let akiko   = new OC("Akiko", "akiko", 7, 17, 124, "#fcef40", [akikoHab1, akikoHab2, akikoHab3, akikoHab4, akikoHab5]);                // Lobita inmortal
 let adam    = new OC("Adam", "adam", 9, 28, 105, "#e99221", [adamHab1, adamHab2, adamHab3, adamHab4, adamHab5]);                       // Detective traumado
+let akiko   = new OC("Akiko", "akiko", 7, 17, 124, "#fcef40", [akikoHab1, akikoHab2, akikoHab3, akikoHab4, akikoHab5]);                // Lobita inmortal
+let callum  = new OC('Callum', 'callum', 12, 26, 110, '#e66419', [callumHab1, callumHab2, callumHab3, callumHab4, callumHab5]);
 let hasani  = new OC("Hasani", "hasani", 7, 22, 100, "#296ed6", [hasaniHab1, hasaniHab2, hasaniHab3, hasaniHab4, hasaniHab5]);         // Mago tritón traumado con DID
 let jacob   = new OC("Jacob", "jacob", 12, 27, 97, "#630d0d", [jacobHab1, jacobHab2, jacobHab3, jacobHab4, jacobHab5]);                // Terrícola torturado
 let kira    = new OC("Kira", "kira", 10, 26, 110, "#f7da5c", [kiraHab1, kiraHab2, kiraHab3, kiraHab4, kiraHab5]);                      // Amiga de Zelie
@@ -41,4 +43,4 @@ let zelie   = new OC("Zelie", "zelie", 12, 26, 90, "#d65797", [zelieHab1, zelieH
 let default1 = new OC("Nombre OC", "noOC", 1, 10, 100, "var(--yo)", []);
 let default2 = new OC("Nombre OC", "noOC2", 1, 10, 100, "var(--enemigo)", []);
 
-export {akiko, adam, hasani, jacob, kira, kizumi, melissa, varoun, yun, zaire, zelie, default1, default2};
+export {adam, akiko, callum, hasani, jacob, kira, kizumi, melissa, varoun, yun, zaire, zelie, default1, default2};
