@@ -138,11 +138,25 @@ alimenta.addEventListener('click', () => {
 });
 
 duerme.addEventListener('click', () => {
-	stats.innerHTML = ' ';
-	pppTxShow('Está durmiendo.', 2500);
-	adamC.estado = 7;
-	adamC.update_estado();
-	adamsitoStatsUpdate();
+	if(duerme.innerHTML == 'Llevar a dormir'){
+		stats.innerHTML = ' ';
+		pppTxShow('Está durmiendo.', 2500);
+		adamC.estado = 7;
+		adamC.update_estado();
+		adamsitoStatsUpdate();
+		duerme.innerHTML = 'Despertar';
+	} else {
+		stats.innerHTML = ' ';
+		pppTxShow('Haz despertado a Adam.', 2500);
+		adamC.animo += Math.floor(Math.random()* (20 - 5 + 1) + 5);
+		if(adamC.animo >= 100){
+			adamC.animo = 100;
+		}
+		adamC.estado = 0;
+		adamC.update_estado();
+		adamsitoStatsUpdate();
+		duerme.innerHTML = 'Llevar a dormir';
+	}
 });
 
 acaricia.addEventListener('click', () => {
