@@ -10,7 +10,7 @@
 
 * {
 	transition: all .2s;
-	font-family: "VT323";
+	font-family: 'VT323';
 	font-size: 22px;
 }
 
@@ -107,7 +107,7 @@ header a {
 	color: var(--c3);
 	border-radius: 2px;
 	text-align: center;
-	font-family: "Pixelify Sans";
+	font-family: 'Pixelify Sans';
 	font-size: 24px;
 	padding: 10px;
 	padding-top: 25px;
@@ -129,7 +129,7 @@ body {
 	grid-template-columns: 1.5fr .5fr 1.5fr 1fr 1fr;
 	grid-template-rows: 80px 1fr 350px;
 	grid-template-areas:
-		"head head head head head"
-		"sele sele char stat stat"
-		"noti chat chat chat chat";
+		'head head head head head'
+		'sele sele char stat stat'
+		'noti chat chat chat chat';
 }

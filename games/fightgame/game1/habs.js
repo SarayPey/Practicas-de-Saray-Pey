@@ -9,7 +9,7 @@ class Habilidades {
 };
 
 // Adam - Balanceado
-let adamHab1 =  new Habilidades("Bendición de la luna dorada", "Adam recupera el 20% de su vida e inflinge un 5% de daño adicional", 10, (caster, target) => {
+let adamHab1 =  new Habilidades('Bendición de la luna dorada', 'Adam recupera el 20% de su vida e inflinge un 5% de daño adicional', 10, (caster, target) => {
 	caster.hp += Math.floor(caster.maxHp * 0.2);
 	let x = caster.cATK += Math.floor(caster.cATK * 0.05);
 	target.hp -= x;
@@ -21,19 +21,19 @@ let adamHab1 =  new Habilidades("Bendición de la luna dorada", "Adam recupera e
 		return;
 	};
 });
-let adamHab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let adamHab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let adamHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let adamHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let adamHab2 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let adamHab3 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let adamHab4 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let adamHab5 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
 
 // Akiko - Enfocado en sanación
-let akikoHab1 =  new Habilidades("Sanación de de la flor mágica", "Al usar esta habilidad, Akiko se cura a sí misma con el 22% de vida máxima", 3, (caster, target) => {
+let akikoHab1 =  new Habilidades('Sanación de de la flor mágica', 'Al usar esta habilidad, Akiko se cura a sí misma con el 22% de vida máxima', 3, (caster, target) => {
 	caster.hp += Math.floor(caster.maxHp * 0.22);
 	if (caster.hp > caster.maxHp){
 		caster.hp = caster.maxHp;
 	};
 });
-let akikoHab2 =  new Habilidades("Defensa dorada", "Con esta habilidad, Akiko inflinge un 10% de daño adicional", 1, (caster, target) => {
+let akikoHab2 =  new Habilidades('Defensa dorada', 'Con esta habilidad, Akiko inflinge un 10% de daño adicional', 1, (caster, target) => {
 	let x = caster.cATK += Math.floor(caster.cATK * 0.1);
 	target.hp -= x;
 	if(target.hp <= 0){
@@ -41,81 +41,81 @@ let akikoHab2 =  new Habilidades("Defensa dorada", "Con esta habilidad, Akiko in
 		return;
 	};
 });
-let akikoHab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let akikoHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let akikoHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let akikoHab3 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let akikoHab4 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let akikoHab5 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
 
 // Callum - Rnfocado en ataque y autodaño
-let callumHab1 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let callumHab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let callumHab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let callumHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let callumHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let callumHab1 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let callumHab2 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let callumHab3 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let callumHab4 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let callumHab5 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
 
 
 // Hasani - Enfocado en defensa
-let hasaniHab1 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let hasaniHab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let hasaniHab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let hasaniHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let hasaniHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let hasaniHab1 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let hasaniHab2 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let hasaniHab3 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let hasaniHab4 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let hasaniHab5 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
 
 // Jacob - Enfocado en ataque y autodaño
-let jacobHab1 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let jacobHab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let jacobHab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let jacobHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let jacobHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let jacobHab1 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let jacobHab2 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let jacobHab3 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let jacobHab4 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let jacobHab5 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
 
 // Kira - Enfocado en defensa
-let kiraHab1 =  new Habilidades("Bendición de Acuarias", "Kira recupera un 15% de su vida máxima", 1, (caster, target) => {
+let kiraHab1 =  new Habilidades('Bendición de Acuarias', 'Kira recupera un 15% de su vida máxima', 1, (caster, target) => {
 	caster.hp += Math.floor(caster.maxHp * 0.15);
 	if (caster.hp > caster.maxHp){
 		caster.hp = caster.maxHp;
 	};
 });
-let kiraHab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let kiraHab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let kiraHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let kiraHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let kiraHab2 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let kiraHab3 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let kiraHab4 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let kiraHab5 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
 
 // Kizumi - Balanceado
-let kizumiHab1 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let kizumiHab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let kizumiHab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let kizumiHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let kizumiHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let kizumiHab1 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let kizumiHab2 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let kizumiHab3 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let kizumiHab4 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let kizumiHab5 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
 
 // Melissa - Balanceado
-let melissaHab1 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let melissaHab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let melissaHab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let melissaHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let melissaHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let melissaHab1 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let melissaHab2 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let melissaHab3 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let melissaHab4 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let melissaHab5 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
 
 // Varoun - Enfocado en ataque
-let varounHab1 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let varounHab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let varounHab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let varounHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let varounHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let varounHab1 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let varounHab2 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let varounHab3 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let varounHab4 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let varounHab5 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
 
 // Yun - Balanceado
-let yunHab1 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let yunHab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let yunHab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let yunHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let yunHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let yunHab1 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let yunHab2 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let yunHab3 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let yunHab4 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let yunHab5 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
 
 // Zaire - Enfocado en ataque
-let zaireHab1 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let zaireHab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let zaireHab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let zaireHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let zaireHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let zaireHab1 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let zaireHab2 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let zaireHab3 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let zaireHab4 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let zaireHab5 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
 
 // Zelie - Enfocado en ataque y autodaño
-let zelieHab1 =  new Habilidades("Prueba de daño", "desc", 2, (caster, target) => {
+let zelieHab1 =  new Habilidades('Prueba de daño', 'desc', 2, (caster, target) => {
 	caster.hp -= Math.floor(caster.maxHp * 0.2);
 	let x = caster.cATK + Math.floor(target.maxHp*0.25);
 	target.hp -= x;
@@ -128,10 +128,10 @@ let zelieHab1 =  new Habilidades("Prueba de daño", "desc", 2, (caster, target) 
 		return;
 	};
 });
-let zelieHab2 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let zelieHab3 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let zelieHab4 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
-let zelieHab5 =  new Habilidades("nombre", "desc", 1, (caster, target) => {});
+let zelieHab2 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let zelieHab3 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let zelieHab4 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
+let zelieHab5 =  new Habilidades('nombre', 'desc', 1, (caster, target) => {});
 
 export {Habilidades, adamHab1, adamHab2, adamHab3, adamHab4, adamHab5,
 				akikoHab1, akikoHab2, akikoHab3, akikoHab4, akikoHab5,

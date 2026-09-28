@@ -1,7 +1,7 @@
 import {none, adam, julian, melissa} from './charList.js';
 let ocList = [adam, julian, melissa]
 
-let meses = ["Janisra", "Fellastrea", "Malyya", "Linyaser", "Meiryla", "Junsyer", "Qynryos", "Nyndia", "Precyd", "Ophyra", "Idrilio", "Elistrae", "Hasikira", "Cersylio", "Estelyst"];
+let meses = ['Janisra', 'Fellastrea', 'Malyya', 'Linyaser', 'Meiryla', 'Junsyer', 'Qynryos', 'Nyndia', 'Precyd', 'Ophyra', 'Idrilio', 'Elistrae', 'Hasikira', 'Cersylio', 'Estelyst'];
 let meses32 = [1, 3, 5, 7, 9, 11, 13, 15];
 let meses33 = [2, 4, 6, 8, 10, 12, 14];
 
@@ -13,23 +13,23 @@ let min = 0;
 let hor = 0;
 let dia = 1;
 
-let segGame  = ("0" + seg).slice(-2);
-let minGame  = ("0" + min).slice(-2);
-let horGame  = ("0" + hor).slice(-2);
-let diaGame  = ("0" + dia).slice(-2);
+let segGame  = ('0' + seg).slice(-2);
+let minGame  = ('0' + min).slice(-2);
+let horGame  = ('0' + hor).slice(-2);
+let diaGame  = ('0' + dia).slice(-2);
 let mesGame  = 0;
 let anioGame = 3045;
 
-let hora  = document.querySelector("#horaG");
-let fecha = document.querySelector("#fechaG");
+let hora  = document.querySelector('#horaG');
+let fecha = document.querySelector('#fechaG');
 
-let fast   = document.querySelector("#bFlash");
-let normal = document.querySelector("#bNormal");
-let playP  = document.querySelector("#bPausa");
+let fast   = document.querySelector('#bFlash');
+let normal = document.querySelector('#bNormal');
+let playP  = document.querySelector('#bPausa');
 
-let oc = document.querySelector("#char");
+let oc = document.querySelector('#char');
 
-let ocChat = document.querySelector("#chat");
+let ocChat = document.querySelector('#chat');
 let dialog = document.createElement('p');
 let ocCur = none;
 let texto;
@@ -37,14 +37,14 @@ let texto;
 function msg(mensaje){
 	console.log(mensaje);
 	ocChat.scrollTop = ocChat.scrollHeight;
-	dialog.textContent = "";
-	ocChat.innerHTML = "- - Haz click al personaje para inteactuar - -";
-	ocChat.innerHTML += "<br>";
+	dialog.textContent = '';
+	ocChat.innerHTML = '- - Haz click al personaje para inteactuar - -';
+	ocChat.innerHTML += '<br>';
 	let indice = 0;
 	let msj = ocCur.dialogos[mensaje];
 	console.log(msj)
 	function escribirTexto() {
-		dialog.textContent = "";
+		dialog.textContent = '';
 		if (indice < msj.length) {
 			dialog.textContent += msj.charAt(indice);
 			ocChat.innerHTML += dialog.innerHTML;
@@ -97,10 +97,10 @@ function tiempo(){
 			min = 0;
 			seg = 0;
 		};
-		segGame  = ("0" + seg).slice(-2);
-		minGame  = ("0" + min).slice(-2);
-		horGame  = ("0" + hor).slice(-2);
-		diaGame  = ("0" + dia).slice(-2);
+		segGame  = ('0' + seg).slice(-2);
+		minGame  = ('0' + min).slice(-2);
+		horGame  = ('0' + hor).slice(-2);
+		diaGame  = ('0' + dia).slice(-2);
 		hora.textContent = `${horGame}:${minGame}:${segGame}`;
 		fecha.textContent = `${diaGame} / ${meses[mesGame]} / ${anioGame}`
 	}, tiem);
@@ -114,13 +114,13 @@ function changeTime(newT){
 
 tiempo();
 
-fast.addEventListener("click", () => {
+fast.addEventListener('click', () => {
 	fast.disabled = true;
 	normal.disabled = false;
 	tiem = 10000;
 	changeTime(tiem);
 });
-normal.addEventListener("click", () => {
+normal.addEventListener('click', () => {
 	fast.disabled = false;
 	normal.disabled = true;
 	tiem = 1000;

@@ -1,6 +1,6 @@
 import {OC} from './OC.js';
 
-let meses = ["Janisra", "Fellastrea", "Malyya", "Linyaser", "Meiryla", "Junsyer", "Qynryos", "Nyndia", "Precyd", "Ophyra", "Idrilio", "Elistrae", "Hasikira", "Cersylio", "Estelyst"];
+let meses = ['Janisra', 'Fellastrea', 'Malyya', 'Linyaser', 'Meiryla', 'Junsyer', 'Qynryos', 'Nyndia', 'Precyd', 'Ophyra', 'Idrilio', 'Elistrae', 'Hasikira', 'Cersylio', 'Estelyst'];
 let meses32 = [1, 3, 5, 7, 9, 11, 13, 15];
 let meses33 = [2, 4, 6, 8, 10, 12, 14];
 
@@ -13,26 +13,26 @@ let min = 0;
 let hor = 0;
 let dia = 1;
 
-let segGame  = ("0" + seg).slice(-2);
-let minGame  = ("0" + min).slice(-2);
-let horGame  = ("0" + hor).slice(-2);
-let diaGame  = ("0" + dia).slice(-2);
+let segGame  = ('0' + seg).slice(-2);
+let minGame  = ('0' + min).slice(-2);
+let horGame  = ('0' + hor).slice(-2);
+let diaGame  = ('0' + dia).slice(-2);
 
 let mesGame  = 0;
 let anioGame = 3025;
 
-let hora  = document.querySelector("#horaG");
-let fecha = document.querySelector("#fechaG");
+let hora  = document.querySelector('#horaG');
+let fecha = document.querySelector('#fechaG');
 hora.textContent = `${horGame}:${minGame}:${segGame}`;
 fecha.textContent = `${diaGame} / ${meses[mesGame]} / ${anioGame}`;
 
-let adamsito = document.querySelector("#adam");
-let statsAdam = document.querySelector("#stats");
+let adamsito = document.querySelector('#adam');
+let statsAdam = document.querySelector('#stats');
 let popup = document.querySelector('#popup');
 let popupTxt = document.querySelector('#popup p');
 
 function pppTxShow(text, t){
-	popupTxt.textContent = "";
+	popupTxt.textContent = '';
 	popup.showModal();
 	let indice = 0;
 	function escribirTextoT() {
@@ -94,10 +94,10 @@ function tiempo(){
 			min = 0;
 			seg = 0;
 		};
-		segGame  = ("0" + seg).slice(-2);
-		minGame  = ("0" + min).slice(-2);
-		horGame  = ("0" + hor).slice(-2);
-		diaGame  = ("0" + dia).slice(-2);
+		segGame  = ('0' + seg).slice(-2);
+		minGame  = ('0' + min).slice(-2);
+		horGame  = ('0' + hor).slice(-2);
+		diaGame  = ('0' + dia).slice(-2);
 		hora.textContent = `${horGame}:${minGame}:${segGame}`;
 		fecha.textContent = `${diaGame} / ${meses[mesGame]} / ${anioGame}`
 	}, tiem);

@@ -9,7 +9,7 @@
 
 * {
 	transition: all .2s;
-	font-family: "VT323";
+	font-family: 'VT323';
 	font-size: 22px;
 	color: var(--c1);
 }
